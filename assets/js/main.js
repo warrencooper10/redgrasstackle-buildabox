@@ -6,7 +6,7 @@
   const DATA_URL = BASE + 'data/baits.json';
 
   // Big Cartel bridge page
-  const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/page/box-add';
+  const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/pages/box-add';
 
   const GALLERY = document.getElementById('gallery');
   const SLOTS = document.getElementById('slots');
