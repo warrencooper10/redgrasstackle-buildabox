@@ -1,11 +1,11 @@
 (function(){
-  console.log('RG Build-a-Box: cart-bridge v4 + absolute data URL');
+  console.log('RG Build-a-Box: cart-bridge v5 (path fix + debug)');
 
-  // Always load data & images from your GitHub Pages site
+  // Always load from GitHub Pages (prevents Big Cartel preview path issues)
   const BASE = 'https://warrencooper10.github.io/redgrasstackle-buildabox/assets/';
   const DATA_URL = BASE + 'data/baits.json';
 
-  // Big Cartel bridge page (NOTE: singular /page/)
+  // Big Cartel bridge page
   const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/page/box-add';
 
   const GALLERY = document.getElementById('gallery');
@@ -20,11 +20,13 @@
   let slots = new Array(MAX_SLOTS).fill(null);
   let filter = 'all';
 
-  // Normalize any relative img path to absolute (handles leading / too)
+  // Normalize any relative img path to absolute (handles leading / and leading 'assets/')
   function fullSrc(path){
     if (!path) return '';
     if (/^https?:\/\//i.test(path)) return path;
-    return BASE + path.replace(/^\/?/, '');
+    let p = String(path).replace(/^\/+/, ''); // drop leading /
+    if (p.startsWith('assets/')) p = p.slice(7); // drop 'assets/'
+    return BASE + p;
   }
 
   function updateCounter(){
@@ -41,9 +43,10 @@
       s.className = 'slot' + (slots[i] ? ' filled' : '');
       if (slots[i]){
         const img = document.createElement('img');
-        img.src = fullSrc(slots[i].image || slots[i].imageFilename);
+        const src = fullSrc(slots[i].image || slots[i].imageFilename || '');
+        img.src = src;
         img.alt = slots[i].color || '';
-        img.onerror = () => { img.remove(); };
+        img.onerror = () => { console.warn('slot img 404:', src); img.remove(); };
         const wrap = document.createElement('div');
         wrap.className = 'slot-text';
         const line1 = document.createElement('div');
@@ -71,9 +74,10 @@
       const card = document.createElement('div');
       card.className = 'card';
       const img = document.createElement('img');
-      img.src = fullSrc(item.image || item.imageFilename);
+      const src = fullSrc(item.image || item.imageFilename || '');
+      img.src = src;
       img.alt = item.color || '';
-      img.onerror = () => { img.style.display='none'; };
+      img.onerror = () => { console.warn('gallery img 404:', src); img.style.display='none'; };
       const meta = document.createElement('div');
       meta.className = 'meta';
       const name = document.createElement('div');
@@ -140,6 +144,7 @@
 
   BTN_CART.addEventListener('click', ()=>{
     const itemsParam = buildItemsParam();
+    console.log('RG items:', itemsParam);
     if (itemsParam){
       const url = `${CART_BRIDGE_URL}?items=${encodeURIComponent(itemsParam)}`;
       console.log('Redirecting to cart bridge:', url);
@@ -151,10 +156,11 @@
     }
   });
 
-  // expose quick check in console
+  // expose quick checks in console
   window.RG_items = buildItemsParam;
+  window.RG_base = BASE;
 
-  // Load bait data from absolute URL (prevents Big Cartel preview from hijacking the path)
+  // Load bait data from absolute URL
   fetch(DATA_URL)
     .then(r=>r.text())
     .then(t=>{ t = t.replace(/^\uFEFF/, ''); return JSON.parse(t); })
