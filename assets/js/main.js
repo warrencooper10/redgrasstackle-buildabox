@@ -6,9 +6,8 @@
   const BTN_COPY = document.getElementById('copyNote');
   const BTN_CART = document.getElementById('addToCart');
 
-  // Set this to your Big Cartel product URL when ready, e.g.:
-  // const BIG_CARTEL_PRODUCT_URL = "https://redgrasstackle.bigcartel.com/product/build-a-box";
-  const BIG_CARTEL_PRODUCT_URL = "";
+  // Big Cartel bridge page (uses your custom domain)
+  const CART_BRIDGE_URL = "https://www.redgrasstackle.com/pages/box-add";
 
   const MAX_SLOTS = 9;
   let data = [];
@@ -109,6 +108,20 @@
     return lines.join('\n');
   }
 
+  // NEW: Build items param for Big Cartel bridge (?items=IDxQTY,IDxQTY)
+  function buildItemsParam(){
+    const countsById = {};
+    slots.forEach(s => {
+      if (!s) return;
+      const id = Number(s.optionId);
+      if (!id || !Number.isFinite(id)) return;
+      countsById[id] = (countsById[id] || 0) + 1; // each slot counts as one pack
+    });
+    const entries = Object.entries(countsById);
+    if (!entries.length) return "";
+    return entries.map(([id, qty]) => `${id}x${qty}`).join(',');
+  }
+
   // Events
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', ()=>{
@@ -136,20 +149,26 @@
   });
 
   BTN_CART.addEventListener('click', ()=>{
-    const note = buildNote();
-    if (BIG_CARTEL_PRODUCT_URL){
-      const url = BIG_CARTEL_PRODUCT_URL + (BIG_CARTEL_PRODUCT_URL.includes('?') ? '&' : '?') + 'notes=' + encodeURIComponent(note);
+    const itemsParam = buildItemsParam();
+    if (itemsParam){
+      const url = `${CART_BRIDGE_URL}?items=${encodeURIComponent(itemsParam)}`;
       window.location.href = url;
     } else {
-      // Fallback: copy + instructions
-      alert('Add to Cart setup pending. Your selections have been copied to your clipboard.\n\nPaste them into the order notes at checkout.\n\n' + note);
+      // Fallback: no IDs found; keep old behavior as a backup
+      const note = buildNote();
+      alert('One or more selections are missing product IDs. Your selections have been copied to your clipboard.\n\nPaste them into the order notes at checkout.\n\n' + note);
       navigator.clipboard.writeText(note).catch(()=>{});
     }
   });
 
   // Load data
   fetch('assets/data/baits.json')
-    .then(r=>r.json())
+    .then(r=>r.text())
+    .then(t=>{
+      // Strip BOM if present
+      t = t.replace(/^\uFEFF/, '');
+      return JSON.parse(t);
+    })
     .then(json=>{
       data = json.filter(item => item.status === 'standard'); // Phase 1
       updateCounter(); renderSlots(); renderGallery();
