@@ -1,5 +1,7 @@
 (function(){
-  console.log('RG Build-a-Box: cart-bridge v2 loaded');
+  console.log('RG Build-a-Box: cart-bridge v3 loaded');
+
+  const CART_BRIDGE_URL = "https://www.redgrasstackle.com/page/box-add"; // NOTE: singular /page/
 
   const GALLERY = document.getElementById('gallery');
   const SLOTS = document.getElementById('slots');
@@ -7,9 +9,6 @@
   const CLEAR = document.getElementById('clearAll');
   const BTN_COPY = document.getElementById('copyNote');
   const BTN_CART = document.getElementById('addToCart');
-
-  // Big Cartel bridge page (uses your custom domain)
-  const CART_BRIDGE_URL = "https://www.redgrasstackle.com/pages/box-add";
 
   const MAX_SLOTS = 9;
   let data = [];
@@ -93,7 +92,6 @@
       card.appendChild(meta);
 
       card.addEventListener('click', ()=>{
-        // Fill next available slot
         const idx = slots.findIndex(x => x === null);
         if (idx === -1) return;
         slots[idx] = item;
@@ -110,7 +108,6 @@
     return lines.join('\n');
   }
 
-  // Build ?items=IDxQTY,IDxQTY string
   function buildItemsParam(){
     const countsById = {};
     slots.forEach(s => {
@@ -124,7 +121,6 @@
     return entries.map(([id, qty]) => `${id}x${qty}`).join(',');
   }
 
-  // Events
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', ()=>{
       document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('is-active'));
@@ -163,10 +159,8 @@
     }
   });
 
-  // Expose helper for testing
   window.RG_items = buildItemsParam;
 
-  // Load data
   fetch('assets/data/baits.json')
     .then(r=>r.text())
     .then(t=>{
