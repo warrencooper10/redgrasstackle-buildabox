@@ -1,4 +1,6 @@
 (function(){
+  console.log('RG Build-a-Box: cart-bridge v2 loaded');
+
   const GALLERY = document.getElementById('gallery');
   const SLOTS = document.getElementById('slots');
   const COUNTER = document.getElementById('slotCounter');
@@ -108,14 +110,14 @@
     return lines.join('\n');
   }
 
-  // NEW: Build items param for Big Cartel bridge (?items=IDxQTY,IDxQTY)
+  // Build ?items=IDxQTY,IDxQTY string
   function buildItemsParam(){
     const countsById = {};
     slots.forEach(s => {
       if (!s) return;
       const id = Number(s.optionId);
       if (!id || !Number.isFinite(id)) return;
-      countsById[id] = (countsById[id] || 0) + 1; // each slot counts as one pack
+      countsById[id] = (countsById[id] || 0) + 1;
     });
     const entries = Object.entries(countsById);
     if (!entries.length) return "";
@@ -152,25 +154,27 @@
     const itemsParam = buildItemsParam();
     if (itemsParam){
       const url = `${CART_BRIDGE_URL}?items=${encodeURIComponent(itemsParam)}`;
+      console.log('Redirecting to cart bridge:', url);
       window.location.href = url;
     } else {
-      // Fallback: no IDs found; keep old behavior as a backup
       const note = buildNote();
-      alert('One or more selections are missing product IDs. Your selections have been copied to your clipboard.\n\nPaste them into the order notes at checkout.\n\n' + note);
+      alert('Selections copied (no product IDs found). Paste these into checkout notes:\n\n' + note);
       navigator.clipboard.writeText(note).catch(()=>{});
     }
   });
+
+  // Expose helper for testing
+  window.RG_items = buildItemsParam;
 
   // Load data
   fetch('assets/data/baits.json')
     .then(r=>r.text())
     .then(t=>{
-      // Strip BOM if present
       t = t.replace(/^\uFEFF/, '');
       return JSON.parse(t);
     })
     .then(json=>{
-      data = json.filter(item => item.status === 'standard'); // Phase 1
+      data = json.filter(item => item.status === 'standard');
       updateCounter(); renderSlots(); renderGallery();
     })
     .catch(err=>{
