@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redgrass Tackle — Build‑a‑Box</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="rg-header">
+    <h1>Build‑a‑Box (9 Slots)</h1>
+    <p>Pick any 9 half‑packs. Click a bait to fill the next slot. Duplicates allowed.</p>
+  </header>
+
+  <section class="rg-toolbar">
+    <div class="filters">
+      <button class="filter-btn is-active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="3&quot; Chubby Minnow">Chubby</button>
+      <button class="filter-btn" data-filter="2.5&quot; Skinny Minnow">Skinny</button>
+      <button class="filter-btn" data-filter="2&quot; BA Split Tail">BA Split Tail</button>
+      <button class="filter-btn" data-filter="2&quot; Ribbed Paddletail">Paddletail</button>
+      <button class="filter-btn" data-filter="2&quot; Flicker Minnow">Flicker</button>
+    </div>
+    <div class="status">
+      <span id="slotCounter">Slots Filled: 0 / 9</span>
+      <button id="clearAll" class="secondary">Clear All</button>
+    </div>
+  </section>
+
+  <section class="rg-slots" id="slots">
+    <!-- 9 slots rendered by JS -->
+  </section>
+
+  <section class="rg-actions">
+    <button id="copyNote" class="secondary" disabled>Copy Selections</button>
+    <button id="addToCart" disabled>Add Box to Cart — $25</button>
+    <small class="hint">Checkout is handled securely on our Big Cartel store.</small>
+  </section>
+
+  <section class="rg-gallery" id="gallery">
+    <!-- Bait cards rendered by JS -->
+  </section>
+
+  <footer class="rg-footer">
+    <p>Redgrass Tackle — Hand‑poured in Mississippi. Fan Favorites & Seasonal Colors.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

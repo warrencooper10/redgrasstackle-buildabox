@@ -1,0 +1,35 @@
+[
+  {
+    "id": "grenada",
+    "name": "Grenada Lake",
+    "ramp": "Grenada Lake Main Marina",
+    "level_ft": 214.3,
+    "days": [
+    {"label":"Today","hi":61,"lo":45,"wind":"NW 12","pop":30},
+    {"label":"Tue","hi":63,"lo":46,"wind":"N 9","pop":70},
+    {"label":"Wed","hi":64,"lo":47,"wind":"NE 7","pop":10}
+    ]
+  },
+  {
+    "id": "sardis",
+    "name": "Sardis Lake",
+    "ramp": "McCurdy Point (verify)",
+    "level_ft": 260.1,
+    "days": [
+      {"label":"Today","hi":60,"lo":44,"wind":"NW 10","pop":10},
+      {"label":"Tue","hi":62,"lo":45,"wind":"N 8","pop":100},
+      {"label":"Wed","hi":64,"lo":46,"wind":"NE 6","pop":0}
+    ]
+  },
+  {
+    "id": "enid",
+    "name": "Enid Lake",
+    "ramp": "Engineers Point (verify)",
+    "level_ft": 249.8,
+    "days": [
+      {"label":"Today","hi":59,"lo":43,"wind":"NW 11","pop":10},
+      {"label":"Tue","hi":61,"lo":44,"wind":"N 8","pop":10},
+      {"label":"Wed","hi":63,"lo":45,"wind":"NE 6","pop":10}
+    ]
+  }
+]
