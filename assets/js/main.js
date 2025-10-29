@@ -1,7 +1,12 @@
 (function(){
-  console.log('RG Build-a-Box: cart-bridge v3 loaded');
+  console.log('RG Build-a-Box: cart-bridge v4 + absolute data URL');
 
-  const CART_BRIDGE_URL = "https://www.redgrasstackle.com/page/box-add"; // NOTE: singular /page/
+  // Always load data & images from your GitHub Pages site
+  const BASE = 'https://warrencooper10.github.io/redgrasstackle-buildabox/assets/';
+  const DATA_URL = BASE + 'data/baits.json';
+
+  // Big Cartel bridge page (NOTE: singular /page/)
+  const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/page/box-add';
 
   const GALLERY = document.getElementById('gallery');
   const SLOTS = document.getElementById('slots');
@@ -13,7 +18,14 @@
   const MAX_SLOTS = 9;
   let data = [];
   let slots = new Array(MAX_SLOTS).fill(null);
-  let filter = "all";
+  let filter = 'all';
+
+  // Normalize any relative img path to absolute (handles leading / too)
+  function fullSrc(path){
+    if (!path) return '';
+    if (/^https?:\/\//i.test(path)) return path;
+    return BASE + path.replace(/^\/?/, '');
+  }
 
   function updateCounter(){
     const filled = slots.filter(Boolean).length;
@@ -23,14 +35,14 @@
   }
 
   function renderSlots(){
-    SLOTS.innerHTML = "";
+    SLOTS.innerHTML = '';
     for (let i=0; i<MAX_SLOTS; i++){
       const s = document.createElement('div');
       s.className = 'slot' + (slots[i] ? ' filled' : '');
       if (slots[i]){
         const img = document.createElement('img');
-        img.src = slots[i].image || '';
-        img.alt = slots[i].color;
+        img.src = fullSrc(slots[i].image || slots[i].imageFilename);
+        img.alt = slots[i].color || '';
         img.onerror = () => { img.remove(); };
         const wrap = document.createElement('div');
         wrap.className = 'slot-text';
@@ -42,9 +54,7 @@
         btn.className = 'remove';
         btn.title = 'Remove';
         btn.innerHTML = '✕';
-        btn.addEventListener('click', ()=>{
-          slots[i] = null; updateCounter(); renderSlots();
-        });
+        btn.addEventListener('click', ()=>{ slots[i] = null; updateCounter(); renderSlots(); });
         wrap.appendChild(line1); wrap.appendChild(line2);
         s.appendChild(img); s.appendChild(wrap); s.appendChild(btn);
       } else {
@@ -55,14 +65,14 @@
   }
 
   function renderGallery(){
-    GALLERY.innerHTML = "";
-    const list = data.filter(item => filter === "all" || item.profile === filter);
+    GALLERY.innerHTML = '';
+    const list = data.filter(item => filter === 'all' || item.profile === filter);
     list.forEach(item => {
       const card = document.createElement('div');
       card.className = 'card';
       const img = document.createElement('img');
-      img.src = item.image || '';
-      img.alt = item.color;
+      img.src = fullSrc(item.image || item.imageFilename);
+      img.alt = item.color || '';
       img.onerror = () => { img.style.display='none'; };
       const meta = document.createElement('div');
       meta.className = 'meta';
@@ -74,22 +84,11 @@
       sub.textContent = `${item.profile} — ${item.halfCount} baits`;
       const badges = document.createElement('div');
       badges.className = 'badges';
-      if (item.tier === 'core'){
-        const b = document.createElement('span');
-        b.className = 'badge core'; b.textContent = 'Fan Favorites';
-        badges.appendChild(b);
-      } else if (item.tier === 'seasonal'){
-        const b = document.createElement('span');
-        b.className = 'badge seasonal'; b.textContent = 'Seasonal Colors';
-        badges.appendChild(b);
-      }
+      if (item.tier === 'core'){ const b=document.createElement('span'); b.className='badge core'; b.textContent='Fan Favorites'; badges.appendChild(b); }
+      else if (item.tier === 'seasonal'){ const b=document.createElement('span'); b.className='badge seasonal'; b.textContent='Seasonal Colors'; badges.appendChild(b); }
 
-      meta.appendChild(name);
-      meta.appendChild(sub);
-      meta.appendChild(badges);
-
-      card.appendChild(img);
-      card.appendChild(meta);
+      meta.appendChild(name); meta.appendChild(sub); meta.appendChild(badges);
+      card.appendChild(img); card.appendChild(meta);
 
       card.addEventListener('click', ()=>{
         const idx = slots.findIndex(x => x === null);
@@ -108,6 +107,7 @@
     return lines.join('\n');
   }
 
+  // Build ?items=IDxQTY,IDxQTY from optionId on each selected bait
   function buildItemsParam(){
     const countsById = {};
     slots.forEach(s => {
@@ -117,7 +117,7 @@
       countsById[id] = (countsById[id] || 0) + 1;
     });
     const entries = Object.entries(countsById);
-    if (!entries.length) return "";
+    if (!entries.length) return '';
     return entries.map(([id, qty]) => `${id}x${qty}`).join(',');
   }
 
@@ -130,20 +130,12 @@
     });
   });
 
-  CLEAR.addEventListener('click', ()=>{
-    slots = new Array(MAX_SLOTS).fill(null);
-    updateCounter(); renderSlots();
-  });
+  CLEAR.addEventListener('click', ()=>{ slots = new Array(MAX_SLOTS).fill(null); updateCounter(); renderSlots(); });
 
   BTN_COPY.addEventListener('click', async ()=>{
     const note = buildNote();
-    try {
-      await navigator.clipboard.writeText(note);
-      BTN_COPY.textContent = 'Copied!';
-      setTimeout(()=>BTN_COPY.textContent='Copy Selections', 1200);
-    } catch(e){
-      alert('Selections copied:\n\n' + note);
-    }
+    try { await navigator.clipboard.writeText(note); BTN_COPY.textContent = 'Copied!'; setTimeout(()=>BTN_COPY.textContent='Copy Selections', 1200); }
+    catch(e){ alert('Selections copied:\n\n' + note); }
   });
 
   BTN_CART.addEventListener('click', ()=>{
@@ -159,18 +151,14 @@
     }
   });
 
+  // expose quick check in console
   window.RG_items = buildItemsParam;
 
-  fetch('assets/data/baits.json')
+  // Load bait data from absolute URL (prevents Big Cartel preview from hijacking the path)
+  fetch(DATA_URL)
     .then(r=>r.text())
-    .then(t=>{
-      t = t.replace(/^\uFEFF/, '');
-      return JSON.parse(t);
-    })
-    .then(json=>{
-      data = json.filter(item => item.status === 'standard');
-      updateCounter(); renderSlots(); renderGallery();
-    })
+    .then(t=>{ t = t.replace(/^\uFEFF/, ''); return JSON.parse(t); })
+    .then(json=>{ data = json; updateCounter(); renderSlots(); renderGallery(); })
     .catch(err=>{
       console.error('Failed to load baits.json', err);
       GALLERY.innerHTML = '<p style="padding:16px;color:#900;">Could not load bait data. Check assets/data/baits.json.</p>';
