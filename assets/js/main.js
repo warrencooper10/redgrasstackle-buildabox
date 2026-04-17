@@ -9,7 +9,7 @@
   const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/buildabox-cart';
 
   // Paid Build A Box product option ID
-  const BUILD_A_BOX_OPTION_ID = 109162266;
+  const BUILD_A_BOX_OPTION_ID = 436605399;
 
   const GALLERY = document.getElementById('gallery');
   const SLOTS = document.getElementById('slots');
