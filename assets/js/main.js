@@ -6,7 +6,7 @@
   const DATA_URL = BASE + 'data/baits.json';
 
   // Big Cartel add-to-cart bridge page
-  const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/box-add-1a53c4';
+  const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/buildabox-cart';
 
   // REQUIRED: replace with the real Big Cartel option ID for the paid Build A Box product
   const BUILD_A_BOX_OPTION_ID = 123456789;
