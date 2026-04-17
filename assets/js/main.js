@@ -5,11 +5,11 @@
   const BASE = 'https://warrencooper10.github.io/redgrasstackle-buildabox/assets/';
   const DATA_URL = BASE + 'data/baits.json';
 
-  // Big Cartel add-to-cart bridge page
+  // Big Cartel helper page
   const CART_BRIDGE_URL = 'https://www.redgrasstackle.com/buildabox-cart';
 
-  // REQUIRED: replace with the real Big Cartel option ID for the paid Build A Box product
-  const BUILD_A_BOX_OPTION_ID = 123456789;
+  // Paid Build A Box product option ID
+  const BUILD_A_BOX_OPTION_ID = 109162266;
 
   const GALLERY = document.getElementById('gallery');
   const SLOTS = document.getElementById('slots');
@@ -206,24 +206,18 @@
     }
 
     const itemsParam = buildItemsParam();
-    const boxId = Number(BUILD_A_BOX_OPTION_ID);
-
-    if (!boxId || !Number.isFinite(boxId)){
-      alert('Build A Box product ID is missing. Add the real Big Cartel option ID in main.js.');
-      return;
-    }
+    const boxParam = `${BUILD_A_BOX_OPTION_ID}x1`;
 
     if (!itemsParam){
       alert('Something went wrong building your box. Please refresh and try again.');
       return;
     }
 
-    const boxParam = `${boxId}x1`;
     const url = `${CART_BRIDGE_URL}?box=${encodeURIComponent(boxParam)}&items=${encodeURIComponent(itemsParam)}`;
 
     console.log('RG box:', boxParam);
     console.log('RG items:', itemsParam);
-    console.log('Redirecting to cart bridge:', url);
+    console.log('Redirecting to cart helper:', url);
 
     window.location.href = url;
   });
