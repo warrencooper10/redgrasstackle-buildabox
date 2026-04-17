@@ -2,7 +2,7 @@
   {
     "profile": "3\" Chubby Minnow",
     "color": "Monkey Milk",
-    "image": "images/chubby_monkey.jpg",
+    "image": "assets/images/chubby_monkey.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -10,12 +10,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_monkey.jpg",
-    "optionId": 100143277
+    "optionId": 480354642
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Sunrise Orange",
-    "image": "images/chubby_sunrise.jpg",
+    "image": "assets/images/chubby_sunrise.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -23,12 +23,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_sunrise.jpg",
-    "optionId": 100143196
+    "optionId": 480356694
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "AC Special",
-    "image": "images/chubby_acspecial.jpg",
+    "image": "assets/images/chubby_acspecial.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -36,12 +36,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_acspecial.jpg",
-    "optionId": 100143232
+    "optionId": 480356724
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Toadfrog",
-    "image": "images/chubby_toad.jpg",
+    "image": "assets/images/chubby_toad.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -49,12 +49,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_toad.jpg",
-    "optionId": 100143271
+    "optionId": 480358671
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Grapetreuse",
-    "image": "images/chubby_grapetreuse.jpg",
+    "image": "assets/images/chubby_grapetreuse.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -62,12 +62,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_grapetreuse.jpg",
-    "optionId": 100143259
+    "optionId": 480358641
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "OG",
-    "image": "images/chubby_og.jpg",
+    "image": "assets/images/chubby_og.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "seasonal",
@@ -75,12 +75,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_og.jpg",
-    "optionId": 100143247
+    "optionId": 480358851
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Electric Blue",
-    "image": "images/chubby_electricblue.jpg",
+    "image": "assets/images/chubby_electricblue.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "seasonal",
@@ -88,12 +88,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_electricblue.jpg",
-    "optionId": 100143238
+    "optionId": 480358746
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Fusion",
-    "image": "images/chubby_fusion.jpg",
+    "image": "assets/images/chubby_fusion.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "seasonal",
@@ -101,12 +101,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_fusion.jpg",
-    "optionId": 100143226
+    "optionId": 480358932
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Twilight",
-    "image": "images/chubby_twilight.jpg",
+    "image": "assets/images/chubby_twilight.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -114,12 +114,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_twilight.jpg",
-    "optionId": 100143208
+    "optionId": 480358902
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Lemon Pepper",
-    "image": "images/chubby_lemon.jpg",
+    "image": "assets/images/chubby_lemon.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -127,25 +127,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_lemon.jpg",
-    "optionId": 100143256
-  },
-  {
-    "profile": "3\" Chubby Minnow",
-    "color": "Americana",
-    "image": "images/chubby_americana.jpg",
-    "fullCount": 8,
-    "halfCount": 4,
-    "tier": "seasonal",
-    "status": "standard",
-    "hex": "",
-    "sku": "",
-    "imageFilename": "chubby_americana.jpg",
-    "optionId": 105256012
+    "optionId": 480358878
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Elton",
-    "image": "images/chubby_elton.jpg",
+    "image": "assets/images/chubby_elton.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "seasonal",
@@ -153,12 +140,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_elton.jpg",
-    "optionId": 105255988
+    "optionId": 480359259
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Tuxedo",
-    "image": "images/chubby_tux.jpg",
+    "image": "assets/images/chubby_tux.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -166,12 +153,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_tux.jpg",
-    "optionId": 111218445
+    "optionId": 480359376
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "True Minnow",
-    "image": "images/chubby_minnow.jpg",
+    "image": "assets/images/chubby_minnow.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -179,12 +166,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_minnow.jpg",
-    "optionId": 108015711
+    "optionId": 480359298
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Pink Cadillac",
-    "image": "images/chubby_pinkcadillac.jpg",
+    "image": "assets/images/chubby_pinkcadillac.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "seasonal",
@@ -192,12 +179,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_pinkcadillac.jpg",
-    "optionId": 111218085
+    "optionId": 480359322
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Crawfish",
-    "image": "images/chubby_crawfish.jpg",
+    "image": "assets/images/chubby_crawfish.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -205,12 +192,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_crawfish.jpg",
-    "optionId": 107105010
+    "optionId": 480359214
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Whitetreuse",
-    "image": "images/chubby_whitetreuse.jpg",
+    "image": "assets/images/chubby_whitetreuse.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "seasonal",
@@ -218,12 +205,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_whitetreuse.jpg",
-    "optionId": 110997189
+    "optionId": 480359418
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Sting Ray",
-    "image": "images/chubby_stingray.jpg",
+    "image": "assets/images/chubby_stingray.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -231,12 +218,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_stingray.jpg",
-    "optionId": 115933350
+    "optionId": 480359358
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Coppertreuse",
-    "image": "images/chubby_coppertreuse.jpg",
+    "image": "assets/images/chubby_coppertreuse.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "core",
@@ -244,12 +231,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_coppertreuse.jpg",
-    "optionId": 115933299
+    "optionId": 480359187
   },
   {
     "profile": "3\" Chubby Minnow",
     "color": "Mississippi Melon",
-    "image": "images/chubby_melon.jpg",
+    "image": "assets/images/chubby_melon.jpg",
     "fullCount": 8,
     "halfCount": 4,
     "tier": "seasonal",
@@ -257,12 +244,38 @@
     "hex": "",
     "sku": "",
     "imageFilename": "chubby_melon.jpg",
-    "optionId": 105256027
+    "optionId": 480359481
+  },
+  {
+    "profile": "3\" Chubby Minnow",
+    "color": "Red Belly",
+    "image": "assets/images/chubby_red-belly.jpg",
+    "fullCount": 8,
+    "halfCount": 4,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "chubby_red-belly.jpg",
+    "optionId": 480359541
+  },
+  {
+    "profile": "3\" Chubby Minnow",
+    "color": "Cookies N Cream",
+    "image": "assets/images/chubby_cookies-n-cream.jpg",
+    "fullCount": 8,
+    "halfCount": 4,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "chubby_cookies-n-cream.jpg",
+    "optionId": 480359574
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Monkey Milk",
-    "image": "images/skinny_monkey.jpg",
+    "image": "assets/images/skinny_monkey.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -270,12 +283,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_monkey.jpg",
-    "optionId": 99646924
+    "optionId": 480354645
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Sunrise Orange",
-    "image": "images/skinny_sunrise.jpg",
+    "image": "assets/images/skinny_sunrise.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -283,12 +296,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_sunrise.jpg",
-    "optionId": 99647173
+    "optionId": 480356697
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "AC Special",
-    "image": "images/skinny_acspecial.jpg",
+    "image": "assets/images/skinny_acspecial.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -296,12 +309,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_acspecial.jpg",
-    "optionId": 99647140
+    "optionId": 480356727
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Toadfrog",
-    "image": "images/skinny_toad.jpg",
+    "image": "assets/images/skinny_toad.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -309,12 +322,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_toad.jpg",
-    "optionId": 99647002
+    "optionId": 480358674
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Grapetreuse",
-    "image": "images/skinny_grapetreuse.jpg",
+    "image": "assets/images/skinny_grapetreuse.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -322,12 +335,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_grapetreuse.jpg",
-    "optionId": 99647050
+    "optionId": 480358644
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "OG",
-    "image": "images/skinny_og.jpg",
+    "image": "assets/images/skinny_og.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "seasonal",
@@ -335,12 +348,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_og.jpg",
-    "optionId": 99647059
+    "optionId": 480358854
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Electric Blue",
-    "image": "images/skinny_electricblue.jpg",
+    "image": "assets/images/skinny_electricblue.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "seasonal",
@@ -348,12 +361,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_electricblue.jpg",
-    "optionId": 99647122
+    "optionId": 480358749
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Fusion",
-    "image": "images/skinny_fusion.jpg",
+    "image": "assets/images/skinny_fusion.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "seasonal",
@@ -361,12 +374,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_fusion.jpg",
-    "optionId": 99647167
+    "optionId": 480358935
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Twilight",
-    "image": "images/skinny_twilight.jpg",
+    "image": "assets/images/skinny_twilight.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -374,12 +387,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_twilight.jpg",
-    "optionId": 99647158
+    "optionId": 480358905
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Lemon Pepper",
-    "image": "images/skinny_lemon.jpg",
+    "image": "assets/images/skinny_lemon.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -387,25 +400,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_lemon.jpg",
-    "optionId": 99647104
-  },
-  {
-    "profile": "2.5\" Skinny Minnow",
-    "color": "Americana",
-    "image": "images/skinny_americana.jpg",
-    "fullCount": 10,
-    "halfCount": 5,
-    "tier": "seasonal",
-    "status": "standard",
-    "hex": "",
-    "sku": "",
-    "imageFilename": "skinny_americana.jpg",
-    "optionId": 105256072
+    "optionId": 480358881
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Elton",
-    "image": "images/skinny_elton.jpg",
+    "image": "assets/images/skinny_elton.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "seasonal",
@@ -413,12 +413,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_elton.jpg",
-    "optionId": 105256069
+    "optionId": 480359262
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Tuxedo",
-    "image": "images/skinny_tux.jpg",
+    "image": "assets/images/skinny_tux.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -426,12 +426,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_tux.jpg",
-    "optionId": 111218451
+    "optionId": 480359379
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "True Minnow",
-    "image": "images/skinny_minnow.jpg",
+    "image": "assets/images/skinny_minnow.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -439,12 +439,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_minnow.jpg",
-    "optionId": 108015720
+    "optionId": 480359301
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Pink Cadillac",
-    "image": "images/skinny_pinkcadillac.jpg",
+    "image": "assets/images/skinny_pinkcadillac.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "seasonal",
@@ -452,12 +452,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_pinkcadillac.jpg",
-    "optionId": 111218109
+    "optionId": 480359325
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Crawfish",
-    "image": "images/skinny_crawfish.jpg",
+    "image": "assets/images/skinny_crawfish.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -465,12 +465,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_crawfish.jpg",
-    "optionId": 107105064
+    "optionId": 480359217
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Whitetreuse",
-    "image": "images/skinny_whitetreuse.jpg",
+    "image": "assets/images/skinny_whitetreuse.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "seasonal",
@@ -478,12 +478,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_whitetreuse.jpg",
-    "optionId": 110997207
+    "optionId": 480359421
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Sting Ray",
-    "image": "images/skinny_stingray.jpg",
+    "image": "assets/images/skinny_stingray.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -491,12 +491,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_stingray.jpg",
-    "optionId": 115933389
+    "optionId": 480359361
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Coppertreuse",
-    "image": "images/skinny_coppertreuse.jpg",
+    "image": "assets/images/skinny_coppertreuse.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "core",
@@ -504,12 +504,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_coppertreuse.jpg",
-    "optionId": 115933326
+    "optionId": 480359190
   },
   {
     "profile": "2.5\" Skinny Minnow",
     "color": "Mississippi Melon",
-    "image": "images/skinny_melon.jpg",
+    "image": "assets/images/skinny_melon.jpg",
     "fullCount": 10,
     "halfCount": 5,
     "tier": "seasonal",
@@ -517,12 +517,38 @@
     "hex": "",
     "sku": "",
     "imageFilename": "skinny_melon.jpg",
-    "optionId": 105256084
+    "optionId": 480359484
+  },
+  {
+    "profile": "2.5\" Skinny Minnow",
+    "color": "Red Belly",
+    "image": "assets/images/skinny_red-belly.jpg",
+    "fullCount": 10,
+    "halfCount": 5,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "skinny_red-belly.jpg",
+    "optionId": 480359544
+  },
+  {
+    "profile": "2.5\" Skinny Minnow",
+    "color": "Cookies N Cream",
+    "image": "assets/images/skinny_cookies-n-cream.jpg",
+    "fullCount": 10,
+    "halfCount": 5,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "skinny_cookies-n-cream.jpg",
+    "optionId": 480359577
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Monkey Milk",
-    "image": "images/ba_monkey.jpg",
+    "image": "assets/images/ba_monkey.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -530,12 +556,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_monkey.jpg",
-    "optionId": 99646606
+    "optionId": 480354648
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Sunrise Orange",
-    "image": "images/ba_sunrise.jpg",
+    "image": "assets/images/ba_sunrise.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -543,12 +569,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_sunrise.jpg",
-    "optionId": 99678979
+    "optionId": 480356700
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "AC Special",
-    "image": "images/ba_acspecial.jpg",
+    "image": "assets/images/ba_acspecial.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -556,12 +582,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_acspecial.jpg",
-    "optionId": 99646435
+    "optionId": 480356730
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Toadfrog",
-    "image": "images/ba_toad.jpg",
+    "image": "assets/images/ba_toad.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -569,12 +595,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_toad.jpg",
-    "optionId": 99646633
+    "optionId": 480358677
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Grapetreuse",
-    "image": "images/ba_grapetreuse.jpg",
+    "image": "assets/images/ba_grapetreuse.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -582,12 +608,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_grapetreuse.jpg",
-    "optionId": 99646357
+    "optionId": 480358647
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "OG",
-    "image": "images/ba_og.jpg",
+    "image": "assets/images/ba_og.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -595,12 +621,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_og.jpg",
-    "optionId": 99646876
+    "optionId": 480358857
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Electric Blue",
-    "image": "images/ba_electricblue.jpg",
+    "image": "assets/images/ba_electricblue.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -608,12 +634,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_electricblue.jpg",
-    "optionId": 99646570
+    "optionId": 480358752
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Fusion",
-    "image": "images/ba_fusion.jpg",
+    "image": "assets/images/ba_fusion.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -621,12 +647,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_fusion.jpg",
-    "optionId": 99678985
+    "optionId": 480358938
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Twilight",
-    "image": "images/ba_twilight.jpg",
+    "image": "assets/images/ba_twilight.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -634,12 +660,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_twilight.jpg",
-    "optionId": 99646885
+    "optionId": 480358908
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Lemon Pepper",
-    "image": "images/ba_lemon.jpg",
+    "image": "assets/images/ba_lemon.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -647,25 +673,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_lemon.jpg",
-    "optionId": 99646597
-  },
-  {
-    "profile": "2\" BA Split Tail",
-    "color": "Americana",
-    "image": "images/ba_americana.jpg",
-    "fullCount": 15,
-    "halfCount": 8,
-    "tier": "seasonal",
-    "status": "standard",
-    "hex": "",
-    "sku": "",
-    "imageFilename": "ba_americana.jpg",
-    "optionId": 105256129
+    "optionId": 480358884
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Elton",
-    "image": "images/ba_elton.jpg",
+    "image": "assets/images/ba_elton.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -673,12 +686,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_elton.jpg",
-    "optionId": 105256123
+    "optionId": 480359265
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Tuxedo",
-    "image": "images/ba_tux.jpg",
+    "image": "assets/images/ba_tux.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -686,12 +699,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_tux.jpg",
-    "optionId": 111218475
+    "optionId": 480359382
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "True Minnow",
-    "image": "images/ba_minnow.jpg",
+    "image": "assets/images/ba_minnow.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -699,12 +712,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_minnow.jpg",
-    "optionId": 108015738
+    "optionId": 480359304
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Pink Cadillac",
-    "image": "images/ba_pinkcadillac.jpg",
+    "image": "assets/images/ba_pinkcadillac.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -712,12 +725,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_pinkcadillac.jpg",
-    "optionId": 111218151
+    "optionId": 480359328
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Crawfish",
-    "image": "images/ba_crawfish.jpg",
+    "image": "assets/images/ba_crawfish.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -725,12 +738,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_crawfish.jpg",
-    "optionId": 107105088
+    "optionId": 480359220
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Whitetreuse",
-    "image": "images/ba_whitetreuse.jpg",
+    "image": "assets/images/ba_whitetreuse.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -738,12 +751,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_whitetreuse.jpg",
-    "optionId": 110997240
+    "optionId": 480359424
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Sting Ray",
-    "image": "images/ba_stingray.jpg",
+    "image": "assets/images/ba_stingray.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -751,12 +764,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_stingray.jpg",
-    "optionId": 115933335
+    "optionId": 480359364
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Coppertreuse",
-    "image": "images/ba_coppertreuse.jpg",
+    "image": "assets/images/ba_coppertreuse.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -764,12 +777,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_coppertreuse.jpg",
-    "optionId": 115933296
+    "optionId": 480359193
   },
   {
     "profile": "2\" BA Split Tail",
     "color": "Mississippi Melon",
-    "image": "images/ba_melon.jpg",
+    "image": "assets/images/ba_melon.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -777,12 +790,38 @@
     "hex": "",
     "sku": "",
     "imageFilename": "ba_melon.jpg",
-    "optionId": 105256156
+    "optionId": 480359487
+  },
+  {
+    "profile": "2\" BA Split Tail",
+    "color": "Red Belly",
+    "image": "assets/images/ba_red-belly.jpg",
+    "fullCount": 15,
+    "halfCount": 8,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "ba_red-belly.jpg",
+    "optionId": 480359547
+  },
+  {
+    "profile": "2\" BA Split Tail",
+    "color": "Cookies N Cream",
+    "image": "assets/images/ba_cookies-n-cream.jpg",
+    "fullCount": 15,
+    "halfCount": 8,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "ba_cookies-n-cream.jpg",
+    "optionId": 480359580
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Monkey Milk",
-    "image": "images/paddle_monkey.jpg",
+    "image": "assets/images/paddle_monkey.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -790,12 +829,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_monkey.jpg",
-    "optionId": 105256345
+    "optionId": 480354654
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Sunrise Orange",
-    "image": "images/paddle_sunrise.jpg",
+    "image": "assets/images/paddle_sunrise.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -803,12 +842,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_sunrise.jpg",
-    "optionId": 105256360
+    "optionId": 480356703
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "AC Special",
-    "image": "images/paddle_acspecial.jpg",
+    "image": "assets/images/paddle_acspecial.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -816,12 +855,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_acspecial.jpg",
-    "optionId": 105256354
+    "optionId": 480356733
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Toadfrog",
-    "image": "images/paddle_toad.jpg",
+    "image": "assets/images/paddle_toad.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -829,12 +868,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_toad.jpg",
-    "optionId": 105256375
+    "optionId": 480358680
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Grapetreuse",
-    "image": "images/paddle_grapetreuse.jpg",
+    "image": "assets/images/paddle_grapetreuse.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -842,12 +881,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_grapetreuse.jpg",
-    "optionId": 105256369
+    "optionId": 480358650
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "OG",
-    "image": "images/paddle_og.jpg",
+    "image": "assets/images/paddle_og.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "seasonal",
@@ -855,12 +894,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_og.jpg",
-    "optionId": 105256429
+    "optionId": 480358860
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Electric Blue",
-    "image": "images/paddle_electricblue.jpg",
+    "image": "assets/images/paddle_electricblue.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "seasonal",
@@ -868,12 +907,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_electricblue.jpg",
-    "optionId": 105256381
+    "optionId": 480358755
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Fusion",
-    "image": "images/paddle_fusion.jpg",
+    "image": "assets/images/paddle_fusion.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "seasonal",
@@ -881,12 +920,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_fusion.jpg",
-    "optionId": 105256411
+    "optionId": 480358941
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Twilight",
-    "image": "images/paddle_twilight.jpg",
+    "image": "assets/images/paddle_twilight.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -894,12 +933,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_twilight.jpg",
-    "optionId": 106553916
+    "optionId": 480358911
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Lemon Pepper",
-    "image": "images/paddle_lemon.jpg",
+    "image": "assets/images/paddle_lemon.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -907,25 +946,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_lemon.jpg",
-    "optionId": 105256399
-  },
-  {
-    "profile": "2\" Ribbed Paddletail",
-    "color": "Americana",
-    "image": "images/paddle_americana.jpg",
-    "fullCount": 12,
-    "halfCount": 6,
-    "tier": "seasonal",
-    "status": "standard",
-    "hex": "",
-    "sku": "",
-    "imageFilename": "paddle_americana.jpg",
-    "optionId": 105256474
+    "optionId": 480358887
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Elton",
-    "image": "images/paddle_elton.jpg",
+    "image": "assets/images/paddle_elton.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "seasonal",
@@ -933,12 +959,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_elton.jpg",
-    "optionId": 105256459
+    "optionId": 480359268
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Tuxedo",
-    "image": "images/paddle_tux.jpg",
+    "image": "assets/images/paddle_tux.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -946,12 +972,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_tux.jpg",
-    "optionId": 111218496
+    "optionId": 480359385
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "True Minnow",
-    "image": "images/paddle_minnow.jpg",
+    "image": "assets/images/paddle_minnow.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -959,12 +985,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_minnow.jpg",
-    "optionId": 108015744
+    "optionId": 480359307
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Pink Cadillac",
-    "image": "images/paddle_pinkcadillac.jpg",
+    "image": "assets/images/paddle_pinkcadillac.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "seasonal",
@@ -972,12 +998,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_pinkcadillac.jpg",
-    "optionId": 111218166
+    "optionId": 480359334
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Crawfish",
-    "image": "images/paddle_crawfish.jpg",
+    "image": "assets/images/paddle_crawfish.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -985,12 +1011,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_crawfish.jpg",
-    "optionId": 107105142
+    "optionId": 480359223
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Whitetreuse",
-    "image": "images/paddle_whitetreuse.jpg",
+    "image": "assets/images/paddle_whitetreuse.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "seasonal",
@@ -998,12 +1024,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_whitetreuse.jpg",
-    "optionId": 110997264
+    "optionId": 480359427
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Sting Ray",
-    "image": "images/paddle_stingray.jpg",
+    "image": "assets/images/paddle_stingray.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -1011,12 +1037,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_stingray.jpg",
-    "optionId": 115933374
+    "optionId": 480359367
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Coppertreuse",
-    "image": "images/paddle_coppertreuse.jpg",
+    "image": "assets/images/paddle_coppertreuse.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "core",
@@ -1024,12 +1050,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_coppertreuse.jpg",
-    "optionId": 115933317
+    "optionId": 480359196
   },
   {
     "profile": "2\" Ribbed Paddletail",
     "color": "Mississippi Melon",
-    "image": "images/paddle_melon.jpg",
+    "image": "assets/images/paddle_melon.jpg",
     "fullCount": 12,
     "halfCount": 6,
     "tier": "seasonal",
@@ -1037,12 +1063,38 @@
     "hex": "",
     "sku": "",
     "imageFilename": "paddle_melon.jpg",
-    "optionId": 105256564
+    "optionId": 480359490
+  },
+  {
+    "profile": "2\" Ribbed Paddletail",
+    "color": "Red Belly",
+    "image": "assets/images/paddle_red-belly.jpg",
+    "fullCount": 12,
+    "halfCount": 6,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "paddle_red-belly.jpg",
+    "optionId": 480359550
+  },
+  {
+    "profile": "2\" Ribbed Paddletail",
+    "color": "Cookies N Cream",
+    "image": "assets/images/paddle_cookies-n-cream.jpg",
+    "fullCount": 12,
+    "halfCount": 6,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "paddle_cookies-n-cream.jpg",
+    "optionId": 480359583
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Monkey Milk",
-    "image": "images/flicker_monkey.jpg",
+    "image": "assets/images/flicker_monkey.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1050,12 +1102,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_monkey.jpg",
-    "optionId": 105256198
+    "optionId": 480354651
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Sunrise Orange",
-    "image": "images/flicker_sunrise.jpg",
+    "image": "assets/images/flicker_sunrise.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1063,12 +1115,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_sunrise.jpg",
-    "optionId": 105256219
+    "optionId": 480356706
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "AC Special",
-    "image": "images/flicker_acspecial.jpg",
+    "image": "assets/images/flicker_acspecial.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1076,12 +1128,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_acspecial.jpg",
-    "optionId": 105256204
+    "optionId": 480356736
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Toadfrog",
-    "image": "images/flicker_toad.jpg",
+    "image": "assets/images/flicker_toad.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1089,12 +1141,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_toad.jpg",
-    "optionId": 105256228
+    "optionId": 480358683
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Grapetreuse",
-    "image": "images/flicker_grapetreuse.jpg",
+    "image": "assets/images/flicker_grapetreuse.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1102,12 +1154,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_grapetreuse.jpg",
-    "optionId": 105256225
+    "optionId": 480358653
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "OG",
-    "image": "images/flicker_og.jpg",
+    "image": "assets/images/flicker_og.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -1115,12 +1167,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_og.jpg",
-    "optionId": 105256273
+    "optionId": 480358863
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Electric Blue",
-    "image": "images/flicker_electricblue.jpg",
+    "image": "assets/images/flicker_electricblue.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -1128,12 +1180,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_electricblue.jpg",
-    "optionId": 105256246
+    "optionId": 480358758
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Fusion",
-    "image": "images/flicker_fusion.jpg",
+    "image": "assets/images/flicker_fusion.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -1141,12 +1193,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_fusion.jpg",
-    "optionId": 105256255
+    "optionId": 480358944
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Twilight",
-    "image": "images/flicker_twilight.jpg",
+    "image": "assets/images/flicker_twilight.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1154,12 +1206,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_twilight.jpg",
-    "optionId": 105256267
+    "optionId": 480358914
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Lemon Pepper",
-    "image": "images/flicker_lemon.jpg",
+    "image": "assets/images/flicker_lemon.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1167,25 +1219,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_lemon.jpg",
-    "optionId": 105256234
-  },
-  {
-    "profile": "2\" Flicker Minnow",
-    "color": "Americana",
-    "image": "images/flicker_americana.jpg",
-    "fullCount": 15,
-    "halfCount": 8,
-    "tier": "seasonal",
-    "status": "standard",
-    "hex": "",
-    "sku": "",
-    "imageFilename": "flicker_americana.jpg",
-    "optionId": 105256279
+    "optionId": 480358890
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Elton",
-    "image": "images/flicker_elton.jpg",
+    "image": "assets/images/flicker_elton.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -1193,12 +1232,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_elton.jpg",
-    "optionId": 105256276
+    "optionId": 480359271
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Tuxedo",
-    "image": "images/flicker_tux.jpg",
+    "image": "assets/images/flicker_tux.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1206,12 +1245,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_tux.jpg",
-    "optionId": 111218511
+    "optionId": 480359388
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "True Minnow",
-    "image": "images/flicker_minnow.jpg",
+    "image": "assets/images/flicker_minnow.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1219,12 +1258,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_minnow.jpg",
-    "optionId": 108015750
+    "optionId": 480359310
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Pink Cadillac",
-    "image": "images/flicker_pinkcadillac.jpg",
+    "image": "assets/images/flicker_pinkcadillac.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -1232,12 +1271,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_pinkcadillac.jpg",
-    "optionId": 111218187
+    "optionId": 480359331
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Crawfish",
-    "image": "images/flicker_crawfish.jpg",
+    "image": "assets/images/flicker_crawfish.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1245,12 +1284,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_crawfish.jpg",
-    "optionId": 107105124
+    "optionId": 480359226
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Whitetreuse",
-    "image": "images/flicker_whitetreuse.jpg",
+    "image": "assets/images/flicker_whitetreuse.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -1258,12 +1297,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_whitetreuse.jpg",
-    "optionId": 110997276
+    "optionId": 480359430
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Sting Ray",
-    "image": "images/flicker_stingray.jpg",
+    "image": "assets/images/flicker_stingray.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1271,12 +1310,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_stingray.jpg",
-    "optionId": 115933362
+    "optionId": 480359370
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Coppertreuse",
-    "image": "images/flicker_coppertreuse.jpg",
+    "image": "assets/images/flicker_coppertreuse.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "core",
@@ -1284,12 +1323,12 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_coppertreuse.jpg",
-    "optionId": 115933305
+    "optionId": 480359199
   },
   {
     "profile": "2\" Flicker Minnow",
     "color": "Mississippi Melon",
-    "image": "images/flicker_melon.jpg",
+    "image": "assets/images/flicker_melon.jpg",
     "fullCount": 15,
     "halfCount": 8,
     "tier": "seasonal",
@@ -1297,6 +1336,32 @@
     "hex": "",
     "sku": "",
     "imageFilename": "flicker_melon.jpg",
-    "optionId": 105256297
+    "optionId": 480359493
+  },
+  {
+    "profile": "2\" Flicker Minnow",
+    "color": "Red Belly",
+    "image": "assets/images/flicker_red-belly.jpg",
+    "fullCount": 15,
+    "halfCount": 8,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "flicker_red-belly.jpg",
+    "optionId": 480359553
+  },
+  {
+    "profile": "2\" Flicker Minnow",
+    "color": "Cookies N Cream",
+    "image": "assets/images/flicker_cookies-n-cream.jpg",
+    "fullCount": 15,
+    "halfCount": 8,
+    "tier": "core",
+    "status": "standard",
+    "hex": "",
+    "sku": "",
+    "imageFilename": "flicker_cookies-n-cream.jpg",
+    "optionId": 480359586
   }
 ]
