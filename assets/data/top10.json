@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "updatedAt": "2026-10-11",
-  "campaign": "lemon-pepper-and-first-image-fallback-test-2026-10-11",
+  "campaign": "lemon-pepper-restored-working-images-2026-10-11",
   "title": "Redgrass Tackle — Top 10",
   "optionIds": [
     480354642,
@@ -15,6 +15,5 @@
     480359577,
     480359430
   ],
-  "fallbackImage": "assets/images/logo-redgrass.png",
-  "testMissingImageSlot": 1
+  "fallbackImage": "assets/images/logo-redgrass.png"
 }
