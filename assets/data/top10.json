@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
   "updatedAt": "2026-10-11",
-  "campaign": "baseline-existing-wix-lineup",
+  "campaign": "requested-test-lineup-2026-10-11",
   "title": "Redgrass Tackle — Top 10",
   "optionIds": [
-    480359580,
-    480359547,
-    480359577,
-    480359544,
-    480359574,
+    480354642,
+    480356730,
+    480356703,
+    480358674,
+    480359310,
     480359541,
-    480359586,
-    480359553,
-    480359583,
-    480359550
+    480359382,
+    480359223,
+    480359577,
+    480359430
   ],
   "fallbackImage": "assets/images/logo-redgrass.png"
 }
