@@ -38,6 +38,10 @@
     "fallbackImage": {
       "type": "string",
       "pattern": "^assets/images/[A-Za-z0-9_.-]+$"
+    },
+    "testMissingImageSlot": {
+      "description": "Temporary QA-only option: force a nonexistent image for slot 1 without changing the shared bait catalog",
+      "const": 1
     }
   }
 }
