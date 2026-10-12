@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "color": "Monkey Milk",
+  "batch": "pilot-01",
+  "status": "awaiting-reference-inspection",
+  "artDirection": "../../README.md",
+  "background": {
+    "left": "#ECE9E1",
+    "right": "#252B2A",
+    "divider": "vertical center",
+    "productScale": "78% width"
+  },
+  "sourceProtected": true,
+  "items": [
+    {
+      "profile": "3\" Chubby Minnow",
+      "slug": "chubby",
+      "optionId": 480354642,
+      "originalPath": "assets/images/chubby_monkey.jpg",
+      "masterPath": "assets/product-remasters/v1/monkey-milk/chubby_monkey-milk_master.png",
+      "webPath": "assets/product-remasters/v1/monkey-milk/chubby_monkey-milk_web.png",
+      "status": "not-generated",
+      "review": {
+        "shape": false,
+        "color": false,
+        "focus": false,
+        "background": false,
+        "approved": false
+      }
+    },
+    {
+      "profile": "2.5\" Skinny Minnow",
+      "slug": "skinny",
+      "optionId": 480354645,
+      "originalPath": "assets/images/skinny_monkey.jpg",
+      "masterPath": "assets/product-remasters/v1/monkey-milk/skinny_monkey-milk_master.png",
+      "webPath": "assets/product-remasters/v1/monkey-milk/skinny_monkey-milk_web.png",
+      "status": "not-generated",
+      "review": {
+        "shape": false,
+        "color": false,
+        "focus": false,
+        "background": false,
+        "approved": false
+      }
+    },
+    {
+      "profile": "2\" BA Split Tail",
+      "slug": "ba",
+      "optionId": 480354648,
+      "originalPath": "assets/images/ba_monkey.jpg",
+      "masterPath": "assets/product-remasters/v1/monkey-milk/ba_monkey-milk_master.png",
+      "webPath": "assets/product-remasters/v1/monkey-milk/ba_monkey-milk_web.png",
+      "status": "not-generated",
+      "review": {
+        "shape": false,
+        "color": false,
+        "focus": false,
+        "background": false,
+        "approved": false
+      }
+    },
+    {
+      "profile": "2\" Ribbed Paddletail",
+      "slug": "paddletail",
+      "optionId": 480354654,
+      "originalPath": "assets/images/paddle_monkey.jpg",
+      "masterPath": "assets/product-remasters/v1/monkey-milk/paddletail_monkey-milk_master.png",
+      "webPath": "assets/product-remasters/v1/monkey-milk/paddletail_monkey-milk_web.png",
+      "status": "not-generated",
+      "review": {
+        "shape": false,
+        "color": false,
+        "focus": false,
+        "background": false,
+        "approved": false
+      }
+    },
+    {
+      "profile": "2\" Flicker Minnow",
+      "slug": "flicker",
+      "optionId": 480354651,
+      "originalPath": "assets/images/flicker_monkey.jpg",
+      "masterPath": "assets/product-remasters/v1/monkey-milk/flicker_monkey-milk_master.png",
+      "webPath": "assets/product-remasters/v1/monkey-milk/flicker_monkey-milk_web.png",
+      "status": "not-generated",
+      "review": {
+        "shape": false,
+        "color": false,
+        "focus": false,
+        "background": false,
+        "approved": false
+      }
+    }
+  ]
+}
