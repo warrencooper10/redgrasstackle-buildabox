@@ -2,7 +2,7 @@
 // Read-only validator for the Redgrass Tackle Top 10. Does not publish changes.
 const fs = require('node:fs');
 const path = require('node:path');
-const ROOT = path.resolve(__dirname, '../..');
+const ROOT = path.resolve(__dirname, '..');
 const load = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const config = load('assets/data/top10.json');
 const baits = load('assets/data/baits.json');
