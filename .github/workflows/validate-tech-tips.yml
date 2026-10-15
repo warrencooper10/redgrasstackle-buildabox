@@ -1,0 +1,21 @@
+name: Validate Tech Tips prototypes
+on:
+  push:
+    paths:
+      - 'tech-tips/**'
+      - 'scripts/test-tech-tips.mjs'
+      - '.github/workflows/validate-tech-tips.yml'
+  pull_request:
+    paths:
+      - 'tech-tips/**'
+      - 'scripts/test-tech-tips.mjs'
+      - '.github/workflows/validate-tech-tips.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-tech-tips.mjs
