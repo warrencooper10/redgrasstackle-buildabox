@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const hub=await fs.readFile(new URL('../tech-tips/index.html',import.meta.url),'utf8');
+const banner=await fs.readFile(new URL('../tech-tips/banner.html',import.meta.url),'utf8');
+assert(hub.includes('id="search"') && hub.includes('search.addEventListener("input",render)'));
+for(const cat of ['Fishing','Rigging','Electronics','Boat','Trailer'])assert(hub.includes('data-filter="'+cat+'"'));
+assert(hub.includes('const topics=[') && hub.includes('Planned video · Coming soon'));
+assert(hub.includes('esc(t.title)') && hub.includes('esc(t.category)'), 'escape string data before rendering');
+assert(hub.includes('aria-live="polite"') && hub.includes('aria-pressed'));
+assert(banner.includes('href="./"') && banner.includes('autoplay muted loop playsinline'));
+assert(banner.includes('rgba(13,45,26,.80)') && banner.includes('media/boat-loop.mp4'));
+assert(banner.includes('prefers-reduced-motion'));
+assert(!hub.includes('youtube.com/embed/'), 'Do not link YouTube until user approves integration');
+console.log('PASS: Tech Tips hub search, categories, accessible filters, placeholders, safe banner + intended video slot.');
