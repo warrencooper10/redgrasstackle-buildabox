@@ -7,6 +7,7 @@
 <style>
 :root{color-scheme:dark;--bg:#0c1110;--shell:#141a18;--surface:#1b2320;--line:#35423a;--green:#a7c07b;--cream:#f1eee2;--muted:#b4bdb4;--rust:#cf6f36;--radius:12px}*{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--cream);font:15px/1.45 system-ui,Segoe UI,Arial,sans-serif}
+[hidden]{display:none!important}html{overflow-x:hidden}body{min-height:100vh}
 a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 header{border-bottom:1px solid #28362f;background:#111714}
 .container{width:min(1280px,calc(100% - 44px));margin:auto}
@@ -54,12 +55,16 @@ footer .container{display:flex;justify-content:space-between;gap:15px;flex-wrap:
 <main>
 <div class="hero"><div class="container hero-layout"><div><div class="kicker">Learn more · Fish smarter</div><h1>TECH TIPS</h1><p>Practical fishing knowledge from the water to the workshop. Explore techniques, rigging, electronics, boat care, and trailer repairs—all in one place.</p></div><div class="feature"><span class="pill">FEATURED TUTORIAL</span><strong>Long-form tutorials coming soon</strong><small>We're building the Redgrass video library. YouTube episodes will appear here when connected.</small></div></div></div>
 <div class="container" id="library"><div class="controls" role="group" aria-label="Filter tutorials"><button class="filter" data-filter="All" aria-pressed="true">All Topics</button><button class="filter" data-filter="Fishing">Fishing</button><button class="filter" data-filter="Rigging">Rigging & Knots</button><button class="filter" data-filter="Electronics">Electronics</button><button class="filter" data-filter="Boat">Boat Maintenance</button><button class="filter" data-filter="Trailer">Trailer Repairs</button><div class="stats" id="stats" aria-live="polite">Topic previews · Videos not linked yet</div></div>
-<section class="rowsection" id="latest"><div class="section-heading"><h2>Featured Topics</h2><div class="rule"></div></div><div id="cards" class="cards"></div></section>
+<section class="rowsection" id="featured"><div class="section-heading"><h2>Featured Topics</h2><div class="rule"></div></div><div id="cards" class="cards"></div></section>
+<section class="rowsection" id="latest"><div class="section-heading"><h2>Latest Planned Topics</h2><div class="rule"></div></div><div id="latest-cards" class="cards"></div></section>
 <div class="empty" id="empty" hidden>No topics match that search. Try another term or category.</div></div>
 </main>
 <footer><div class="container"><span>© Redgrass Tackle · Tech Tips</span><span>Video hosting and YouTube integration are coming in the next phase.</span></div></footer>
 <script>
 "use strict";
+// In Wix, the native site header already provides Home and brand navigation.
+if(new URLSearchParams(location.search).get("embed")==="1"){document.querySelector(".logo").hidden=true;document.querySelector("nav a").hidden=true;}
+
 // These are clearly labeled topic placeholders, not published videos.
 const topics=[
 {category:"Fishing",title:"Finding Crappie Through the Seasons",description:"Planned tutorial",color:"#3c564c",icon:"fish"},
@@ -75,8 +80,8 @@ const icons={fish:'<path d="M12 24 Q26 9 42 24 Q26 39 12 24Z M12 24 L3 14 L3 34Z
 const shell=document.getElementById("cards"),search=document.getElementById("search"),stats=document.getElementById("stats"),empty=document.getElementById("empty");
 let category="All";const esc=s=>String(s).replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x]));
 function render(){const needle=search.value.toLowerCase().trim();const filtered=topics.filter(t=>(category==="All"||t.category===category)&&[t.title,t.category].some(s=>s.toLowerCase().includes(needle)));
-shell.replaceChildren();filtered.forEach(t=>{const item=document.createElement("article");item.className="card";item.innerHTML='<div class="thumb" style="--tile:linear-gradient(135deg,'+t.color+',#171f19)"><svg viewBox="0 0 48 48" fill="none" stroke="#e2eddc" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[t.icon]+'</svg></div><div class="card-body"><span class="tag">'+esc(t.category)+'</span><span class="card-title">'+esc(t.title)+'</span><p>Planned video · Coming soon</p></div>';shell.appendChild(item)});
-empty.hidden=filtered.length>0;stats.textContent=filtered.length+" planned topic"+(filtered.length===1?"":"s")+" · YouTube not connected";
+shell.replaceChildren();const latestShell=document.getElementById("latest-cards");latestShell.replaceChildren();filtered.forEach(t=>{const item=document.createElement("article");item.className="card";item.innerHTML='<div class="thumb" style="--tile:linear-gradient(135deg,'+t.color+',#171f19)"><svg viewBox="0 0 48 48" fill="none" stroke="#e2eddc" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[t.icon]+'</svg></div><div class="card-body"><span class="tag">'+esc(t.category)+'</span><span class="card-title">'+esc(t.title)+'</span><p>Planned video · Coming soon</p></div>';(topics.indexOf(t)<4?shell:latestShell).appendChild(item)});
+document.getElementById("featured").hidden=!shell.children.length;document.getElementById("latest").hidden=!latestShell.children.length;empty.hidden=filtered.length>0;stats.textContent=filtered.length+" planned topic"+(filtered.length===1?"":"s")+" · YouTube not connected";
 }
 document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{category=btn.dataset.filter;document.querySelectorAll(".filter").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));render()}));
 search.addEventListener("input",render);render();
