@@ -11,14 +11,20 @@ video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:
 .banner:hover .cta,.banner:focus-visible .cta{background:#fff}
 .banner:focus-visible{outline:3px solid #f9d87c;outline-offset:-3px}
 @media (prefers-reduced-motion:reduce){video{display:none}}@media(max-width:640px){.banner{min-height:250px}.subtitle{max-width:340px}}
-</style></head><body><a class="banner" href="https://www.redgrasstackle.com/tech-tips" target="_top" aria-label="Open Redgrass Tech Tips subpage">
-<!-- Video: default media/boat-loop.mp4, or ?video=ENCODED_HTTPS_MP4_URL to choose a source without editing code. URL /tech-tips goes live after page creation and Wix domain move. -->
+</style></head><body><a class="banner" href="./" target="_top" aria-label="Open Redgrass Tech Tips subpage">
+<!-- Video: default media/boat-loop.mp4, or ?video=ENCODED_HTTPS_MP4_URL to choose a source without editing code. Wix installation uses a native transparent page-link overlay; no domain move is required. -->
 <video id="loop" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="./media/boat-loop.mp4" type="video/mp4"></video>
 <div class="poster"></div><div class="tint"></div>
 <div class="content"><div class="eyebrow">Learn more · Fish smarter</div><div class="title">TECH TIPS</div><p class="subtitle">Fishing techniques, rigging, boat repairs, and know-how from the water to the workshop.</p><span class="cta">Explore Tech Tips →</span></div></a>
 <script>
 const params = new URLSearchParams(location.search);
 const chosenVideo = params.get('video');
+// Wix owns same-tab routing through its native full-size transparent link.
+if (params.get('overlay') === '1') {
+  const banner = document.querySelector('.banner');
+  banner.removeAttribute('href');
+  banner.removeAttribute('target');
+}
 const player = document.getElementById('loop');
 if (chosenVideo) {
   try {
