@@ -1,6 +1,6 @@
 # Redgrass community additions — unpublished draft
 
-Status: installed in the existing My Site 4 Wix Classic draft; not published. Work performed remotely in ChatGPT Work Cloud. Last review: 2026-10-25.
+Status: installed in the existing My Site 4 Wix Classic draft; not published. Updated to three independent full-width homepage banner sections per owner instruction. Work performed remotely in ChatGPT Work Cloud. Last review: 2026-10-25.
 
 Site ID: d97a42b5-a881-4850-afe4-9b7882465c06  
 Document ID: 2fad3620-a341-4eaa-955b-3582821fce8e  
@@ -10,16 +10,16 @@ Development branch: draft/four-community-sections-2026-10-24
 
 | Deliverable | Installed behavior | Source / native control |
 | --- | --- | --- |
-| Catch Board homepage banner | CAUGHT ON REDGRASS; Submit Your Catch and View the Catch Board links | homepage-banners.html, native home html2 |
+| Catch Board homepage banner | CAUGHT ON REDGRASS; Submit Your Catch and View the Catch Board links | catch-board-banner.html, native home html2 |
 | Catch Board subpage | Native hero, approved-only gallery framework, photo dialog, private submission form | catch.html, page wwfv5, /the-catch-board |
-| Tournament Proven homepage banner | PROVEN ON THE WATER; See What They Used and View Tournament Results links | homepage-banners.html, native home html2 |
+| Tournament Proven homepage banner | PROVEN ON THE WATER; See What They Used and View Tournament Results links | tournament-proven-banner.html, native home html4 |
 | Tournament Proven subpage | Native hero, verified result and exact bait-link framework, honest empty state | tournament.html, page fpfou, /tournament-wins |
-| Last Tacklebox homepage banner | WHERE BAITS GO BEFORE THEY’RE GONE FOREVER.; Open the Last Tacklebox link | homepage-banners.html, native home html2 |
+| Last Tacklebox homepage banner | WHERE BAITS GO BEFORE THEY’RE GONE FOREVER.; Open the Last Tacklebox link | last-tacklebox-banner.html, native home html3 |
 | Last Tacklebox subpage | Native hero, owner-curated closeout framework, empty and sold-out logic | closeouts.html, page vzl25, /the-last-tacklebox |
 | Redgrass Crew homepage banner | JOIN THE REDGRASS CREW; exact requested support; native Email, Subscribe and unchecked consent | Native home Section1Regular, text2, form1 |
 | Redgrass Crew subpage | Same native newsletter form and consent; success/error behavior | Native page j1ezd, /redgrass-crew, form1 |
 
-Homepage order is preserved shopping/lake cards/carousel/Tech Tips, followed by Catch Board, Tournament Proven, Last Tacklebox and Crew. The first three new rows are semantic sections within one native HTML embed; Crew is a separate native section. They are not four independent native Wix section controls.
+Homepage order is preserved shopping/lake cards/carousel/Tech Tips, followed by Catch Board, Tournament Proven, Last Tacklebox and Crew. The three banners now use independent native Wix sections and independent HTML embeds: UGC (section1/html2) contains only Catch Board; Tournament Headquarters (section13/html4) contains only Tournament Proven; The Last Tacklebox (section11/html3) contains only Last Tacklebox. Each embed uses Wix full-width stretch with zero side margins. Each entire banner links to its matching existing subpage, while the specific buttons and submission/results anchors are preserved. Crew remains its separate native newsletter section. The combined homepage-banners.html is retained only as a legacy pre-split snapshot and is no longer installed.
 
 ## Preview and editing
 
@@ -66,7 +66,7 @@ The assets/ SVG files are source proposals only. Wix URL import rejected them; i
 
 - All four banners and all four subpages installed and inspected in the existing Wix draft/test site.
 - Main destination/anchor navigation exercised; all homepage link destinations also inspected.
-- Desktop layout reviewed; mobile content frames confirmed at 320px wide. Catch gallery 750px high at Y1150, anchor Y1910, private form Y1950. Tournament and closeout frames each 750px high. Homepage three-row frame is 320 by 1920; parent section height 1940. Native Crew forms fit the mobile page flow.
+- Desktop layout reviewed; mobile content frames confirmed at 320px wide. Catch gallery 750px high at Y1150, anchor Y1910, private form Y1950. Tournament and closeout frames each 750px high. Each of the three independent homepage banners and its parent section is 320 by 640 on mobile, with zero internal vertical offset. Desktop banner/parent height is 640, native full-width stretch is enabled, and margins are zero. Native Crew forms fit the mobile page flow.
 - The three module scripts compiled successfully with new Function. Empty states rendered.
 - Newsletter required email and unchecked-consent behavior tested. An initial test exposed that required alone allowed false; both forms were corrected to enum [true]. Retest without consent was blocked with no new submission. Consent true submitted successfully; subscription readback was SUBSCRIBED.
 - Newsletter QA subscription was then set to UNSUBSCRIBED and verified. No marketing campaign was sent.
