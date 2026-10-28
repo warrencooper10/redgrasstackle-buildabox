@@ -23,7 +23,7 @@ Mouse drag and horizontal touch/pointer swipe rotate the elliptical 3D installat
 
 ## Build and integration
 
-`python3 rotation/build.py` creates `index.html` (self-contained component code), `bundle.js` and `embed.html`. The Wix embed uses a commit-pinned CSS/JS bundle; its lineup and optimized photos load from the review branch. Pin embed CSS/JS to the reviewed source commit. A configuration update does not require changing the pinned renderer or Wix code.
+`python3 rotation/build.py` creates `index.html` (self-contained component code), `bundle.js` and `embed.html`. The Wix embed uses a commit-pinned CSS/JS bundle; its lineup loads through the public GitHub Contents API from the approved review branch, and its optimized photos load as static branch assets. The API avoids stale raw-file edge caches; network or rate-limit responses retain the validated saved/bundled lineup. Pin embed CSS/JS to the reviewed source commit. A configuration update does not require changing the pinned renderer or Wix code.
 
 The production decision remains separate: owner approval is required before publishing the Wix site. The review branch does not replace the Build-a-Box GitHub Pages site.
 
