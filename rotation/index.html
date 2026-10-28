@@ -104,7 +104,7 @@ async function preload(items){await Promise.all(items.map(p=>new Promise((resolv
 async function load(){
  let cached;try{cached=JSON.parse(localStorage.getItem(KEY));}catch{}
  let immediate;try{immediate=validateLineup(cached,CATALOG);}catch{immediate=validateLineup(BASELINE,CATALOG);}mount(immediate);
- const result=await resolveFeed(async()=>fetch(BASE+'rotation/lineup.json',{cache:'no-cache',signal:AbortSignal.timeout(7000)}),{baseline:BASELINE,catalog:CATALOG,cached,preflight:preload});
+ const result=await resolveFeed(async()=>fetch(BASE+'rotation/lineup.json?v='+Date.now(),{cache:'no-cache',signal:AbortSignal.timeout(7000)}),{baseline:BASELINE,catalog:CATALOG,cached,preflight:preload});
  if(result.source==='remote'){
   if(JSON.stringify(result.products)!==JSON.stringify(products))mount(result.products);
   try{localStorage.setItem(KEY,JSON.stringify(result.config));}catch{}
