@@ -18,6 +18,11 @@ export function validateLineup(config, catalog) {
     const url = new URL(p.url), catalogURL = new URL(c.bigCartelUrl);
     if (url.origin !== 'https://redgrasstackle.bigcartel.com' || url.search || url.hash || url.username || url.password || !/^\/product\/[a-z0-9-]+$/.test(url.pathname) || url.pathname !== catalogURL.pathname || links.has(p.url))
       throw Error('Incorrect shopping destination');
+    const compact = s => s.toLowerCase().replace(/[^a-z0-9]/g,'');
+    const colorSlug = compact(p.color === 'True Minnow' ? 'Minnow' : p.color);
+    const type = /Chubby/.test(p.profile) ? 'chubby' : /Skinny/.test(p.profile) ? 'skinny' : /BA Split/.test(p.profile) ? 'basplit' : /Ribbed/.test(p.profile) ? 'ribbedpaddle' : /Flicker/.test(p.profile) ? 'flicker' : null;
+    if (!type || !compact(url.pathname).includes(type) || !compact(url.pathname).endsWith(colorSlug))
+      throw Error('Product URL does not match the profile and color');
     if (!p.verifiedTitle || !/^\d{4}-\d{2}-\d{2}T/.test(p.verifiedAt || '') || !Number.isFinite(Date.parse(p.verifiedAt)))
       throw Error('Unverified shopping destination');
     ids.add(p.id); pairs.add(pair); images.add(p.originalImage); links.add(p.url);

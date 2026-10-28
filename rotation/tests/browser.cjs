@@ -5,7 +5,7 @@ const fs=require('fs'),path=require('path'),assert=require('node:assert/strict')
  const repo=path.resolve(__dirname,'../..');const output=path.resolve(repo,'../verification');fs.mkdirSync(output,{recursive:true});
  for(const viewport of [{width:1536,height:690},{width:390,height:660},{width:320,height:640}]){
   const page=await browser.newPage({viewport});
-  await page.route('https://warrencooper10.github.io/redgrasstackle-buildabox/**',async route=>{const name=new URL(route.request().url()).pathname.split('/redgrasstackle-buildabox/')[1];const p=path.join(repo,name);await route.fulfill({status:fs.existsSync(p)?200:404,body:fs.existsSync(p)?fs.readFileSync(p):'missing',contentType:p.endsWith('.webp')?'image/webp':p.endsWith('.json')?'application/json':'text/html'});});
+  await page.route('https://raw.githubusercontent.com/warrencooper10/redgrasstackle-buildabox/feature/the-rotation-2026-10-28/**',async route=>{const name=new URL(route.request().url()).pathname.split('/feature/the-rotation-2026-10-28/')[1];const p=path.join(repo,name);await route.fulfill({headers:{'access-control-allow-origin':'*'},status:fs.existsSync(p)?200:404,body:fs.existsSync(p)?fs.readFileSync(p):'missing',contentType:p.endsWith('.webp')?'image/webp':p.endsWith('.json')?'application/json':'text/html'});});
   await page.goto('file://'+path.join(repo,'rotation/index.html'));await page.locator('.product').first().waitFor();
   await page.waitForFunction(()=>document.querySelector('.showroom').dataset.source==='remote');
   assert.equal(await page.locator('.product').count(),10);

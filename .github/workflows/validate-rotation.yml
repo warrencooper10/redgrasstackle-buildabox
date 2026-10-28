@@ -1,0 +1,22 @@
+name: Validate The Rotation
+on:
+  push:
+    paths: ['rotation/**', 'assets/data/baits.json', '.github/workflows/validate-rotation.yml']
+  pull_request:
+    paths: ['rotation/**', 'assets/data/baits.json', '.github/workflows/validate-rotation.yml']
+permissions:
+  contents: read
+jobs:
+  lineup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node rotation/tests/model.mjs
+      - run: python3 rotation/verify-links.py
+      - run: node --check rotation/bundle.js
