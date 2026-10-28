@@ -24,7 +24,7 @@ print('Built',len(html),'bytes')
 # A small Classic Editor HTML shell loads the versioned component from the review branch.
 import re
 import os
-renderer_ref=os.environ.get('ROTATION_RENDERER_REF','f26c0c236a0cac2e1d3a37b9f5d29a67a6c37262')
+renderer_ref=os.environ.get('ROTATION_RENDERER_REF','15c00a7dd32a5b3de571e80b3672e4069c75ece3')
 cdn=f'https://cdn.jsdelivr.net/gh/warrencooper10/redgrasstackle-buildabox@{renderer_ref}/rotation/'
 script=re.search(r'<script type="module">(.*?)</script>',html,re.S).group(1)
 (r/'bundle.js').write_text(script)
