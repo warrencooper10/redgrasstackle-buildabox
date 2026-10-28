@@ -1,85 +1,15 @@
 {
   "schemaVersion": 2,
-  "campaign": "rotation-qa-reorder",
+  "campaign": "rotation-qa-invalid",
   "products": [
     {
-      "id": 480359430,
-      "profile": "2\" Flicker Minnow",
-      "color": "Whitetreuse",
-      "originalImage": "assets/images/flicker_whitetreuse.jpg",
-      "image": "rotation/assets/480359430.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/2-flicker-minnow-whitetreuse",
-      "verifiedTitle": "2\" Flicker Minnow - Whitetreuse",
-      "verifiedAt": "2026-10-28T17:45:30Z"
-    },
-    {
-      "id": 480359577,
-      "profile": "2.5\" Skinny Minnow",
-      "color": "Cookies N Cream",
-      "originalImage": "assets/images/skinny_cookies.PNG",
-      "image": "rotation/assets/480359577.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/25-skinny-minnow-cookies-n-cream",
-      "verifiedTitle": "2.5\" Skinny Minnow - Cookies 'N Cream",
-      "verifiedAt": "2026-10-28T17:45:30Z"
-    },
-    {
-      "id": 480358887,
-      "profile": "2\" Ribbed Paddletail",
-      "color": "Lemon Pepper",
-      "originalImage": "assets/images/paddle_lemon.jpg",
-      "image": "rotation/assets/480358887.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/2-ribbed-paddletail-lemon-pepper",
-      "verifiedTitle": "2\" Ribbed Paddletail - Lemon Pepper",
-      "verifiedAt": "2026-10-28T17:45:30Z"
-    },
-    {
-      "id": 480359382,
-      "profile": "2\" BA Split Tail",
-      "color": "Tuxedo",
-      "originalImage": "assets/images/ba_tux.jpg",
-      "image": "rotation/assets/480359382.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/2-ba-split-tail-tuxedo",
-      "verifiedTitle": "2\" BA Split tail - Tuxedo",
-      "verifiedAt": "2026-10-28T17:45:30Z"
-    },
-    {
-      "id": 480359541,
+      "id": 480354642,
       "profile": "3\" Chubby Minnow",
-      "color": "Red Belly",
-      "originalImage": "assets/images/chubby_redbelly.PNG",
-      "image": "rotation/assets/480359541.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/3-chubby-minnow-red-belly",
-      "verifiedTitle": "3\" Chubby Minnow - Red Belly",
-      "verifiedAt": "2026-10-28T17:45:30Z"
-    },
-    {
-      "id": 480359310,
-      "profile": "2\" Flicker Minnow",
-      "color": "True Minnow",
-      "originalImage": "assets/images/flicker_minnow.jpg",
-      "image": "rotation/assets/480359310.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/2-flicker-minnow-minnow",
-      "verifiedTitle": "2\" Flicker Minnow - True Minnow",
-      "verifiedAt": "2026-10-28T17:45:30Z"
-    },
-    {
-      "id": 480358674,
-      "profile": "2.5\" Skinny Minnow",
-      "color": "Toadfrog",
-      "originalImage": "assets/images/skinny_toad.jpg",
-      "image": "rotation/assets/480358674.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/2-5-8-split-tail-skinny-minnow-toadfrog",
-      "verifiedTitle": "2 5/8\" Split tail Skinny Minnow - Toadfrog",
-      "verifiedAt": "2026-10-28T17:45:30Z"
-    },
-    {
-      "id": 480356703,
-      "profile": "2\" Ribbed Paddletail",
-      "color": "Sunrise Orange",
-      "originalImage": "assets/images/paddle_sunrise.jpg",
-      "image": "rotation/assets/480356703.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/2-ribbed-paddletail-grub-sunrise-orange",
-      "verifiedTitle": "2\" Ribbed Paddletail - Sunrise Orange",
+      "color": "Monkey Milk",
+      "originalImage": "assets/images/chubby_monkey.jpg",
+      "image": "rotation/assets/480354642.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/3-chubby-minnow-split-tail-monkey-milk",
+      "verifiedTitle": "3\" Chubby Minnow Split tail - Monkey Milk",
       "verifiedAt": "2026-10-28T17:45:30Z"
     },
     {
@@ -93,13 +23,73 @@
       "verifiedAt": "2026-10-28T17:45:30Z"
     },
     {
-      "id": 480354642,
+      "id": 480356703,
+      "profile": "2\" Ribbed Paddletail",
+      "color": "Sunrise Orange",
+      "originalImage": "assets/images/paddle_sunrise.jpg",
+      "image": "rotation/assets/480356703.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/2-ribbed-paddletail-grub-sunrise-orange",
+      "verifiedTitle": "2\" Ribbed Paddletail - Sunrise Orange",
+      "verifiedAt": "2026-10-28T17:45:30Z"
+    },
+    {
+      "id": 480358674,
+      "profile": "2.5\" Skinny Minnow",
+      "color": "Toadfrog",
+      "originalImage": "assets/images/skinny_toad.jpg",
+      "image": "rotation/assets/480358674.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/2-5-8-split-tail-skinny-minnow-toadfrog",
+      "verifiedTitle": "2 5/8\" Split tail Skinny Minnow - Toadfrog",
+      "verifiedAt": "2026-10-28T17:45:30Z"
+    },
+    {
+      "id": 480359310,
+      "profile": "2\" Flicker Minnow",
+      "color": "True Minnow",
+      "originalImage": "assets/images/flicker_minnow.jpg",
+      "image": "rotation/assets/480359310.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/2-flicker-minnow-minnow",
+      "verifiedTitle": "2\" Flicker Minnow - True Minnow",
+      "verifiedAt": "2026-10-28T17:45:30Z"
+    },
+    {
+      "id": 480359541,
       "profile": "3\" Chubby Minnow",
-      "color": "Monkey Milk",
-      "originalImage": "assets/images/chubby_monkey.jpg",
-      "image": "rotation/assets/480354642.webp",
-      "url": "https://redgrasstackle.bigcartel.com/product/3-chubby-minnow-split-tail-monkey-milk",
-      "verifiedTitle": "3\" Chubby Minnow Split tail - Monkey Milk",
+      "color": "Red Belly",
+      "originalImage": "assets/images/chubby_redbelly.PNG",
+      "image": "rotation/assets/480359541.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/3-chubby-minnow-red-belly",
+      "verifiedTitle": "3\" Chubby Minnow - Red Belly",
+      "verifiedAt": "2026-10-28T17:45:30Z"
+    },
+    {
+      "id": 480359382,
+      "profile": "2\" BA Split Tail",
+      "color": "Tuxedo",
+      "originalImage": "assets/images/ba_tux.jpg",
+      "image": "rotation/assets/480359382.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/2-ba-split-tail-tuxedo",
+      "verifiedTitle": "2\" BA Split tail - Tuxedo",
+      "verifiedAt": "2026-10-28T17:45:30Z"
+    },
+    {
+      "id": 480358887,
+      "profile": "2\" Ribbed Paddletail",
+      "color": "Lemon Pepper",
+      "originalImage": "assets/images/paddle_lemon.jpg",
+      "image": "rotation/assets/480358887.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/2-ribbed-paddletail-lemon-pepper",
+      "verifiedTitle": "2\" Ribbed Paddletail - Lemon Pepper",
+      "verifiedAt": "2026-10-28T17:45:30Z"
+    },
+    {
+      "id": 480359577,
+      "profile": "2.5\" Skinny Minnow",
+      "color": "Cookies N Cream",
+      "originalImage": "assets/images/skinny_cookies.PNG",
+      "image": "rotation/assets/480359577.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/25-skinny-minnow-cookies-n-cream",
+      "verifiedTitle": "2.5\" Skinny Minnow - Cookies 'N Cream",
       "verifiedAt": "2026-10-28T17:45:30Z"
     }
   ]
