@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "campaign": "rotation-qa-invalid",
+  "campaign": "the-rotation",
   "products": [
     {
       "id": 480354642,
@@ -90,6 +90,16 @@
       "image": "rotation/assets/480359577.webp",
       "url": "https://redgrasstackle.bigcartel.com/product/25-skinny-minnow-cookies-n-cream",
       "verifiedTitle": "2.5\" Skinny Minnow - Cookies 'N Cream",
+      "verifiedAt": "2026-10-28T17:45:30Z"
+    },
+    {
+      "id": 480359430,
+      "profile": "2\" Flicker Minnow",
+      "color": "Whitetreuse",
+      "originalImage": "assets/images/flicker_whitetreuse.jpg",
+      "image": "rotation/assets/480359430.webp",
+      "url": "https://redgrasstackle.bigcartel.com/product/2-flicker-minnow-whitetreuse",
+      "verifiedTitle": "2\" Flicker Minnow - Whitetreuse",
       "verifiedAt": "2026-10-28T17:45:30Z"
     }
   ]
