@@ -76,6 +76,15 @@ We do not suggest any bait is better, predict fish response, teach rigging/weigh
 
 Do not replace existing Wix page markup or entire site with the standalone HTML.
 
+## Deployment cache note
+
+The simulator loads `app.js` through a versioned query parameter in `index.html`.
+When you change the deployed JavaScript, **bump the `?v=` value** so a browser
+that visited the page during the GitHub Pages deployment doesn't keep the
+older rendering engine. The page URL query (including a tracking parameter)
+does *not* refresh a cached script by itself. A hard refresh can also recover
+from an older cached deployment.
+
 ## Local checks
 
 ```bash
