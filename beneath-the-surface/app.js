@@ -382,10 +382,16 @@
   function drawBait() {
     const deep = state.depth;
     const hue = color();
-    const alpha = baitVisibility(deep);
-    const body = seenColor(hue.top,deep);
-    const belly = seenColor(hue.bottom,deep);
-    const tail = seenColor(hue.tail,deep);
+    // Airborne/dry: always display the reference bait colors. Sky, cloud
+    // cover, water preset and Fish mode do not alter a bait before splash.
+    // Water effects begin at entry and stop once the lure clears the surface.
+    const submerged = state.phase === 'splash' ||
+      (['fall','hold','inspect','reel'].includes(state.phase) && state.y >= SURFACE);
+    const appearance = pigment => submerged ? seenColor(pigment, deep) : pigment;
+    const alpha = submerged ? baitVisibility(deep) : 1;
+    const body = appearance(hue.top);
+    const belly = appearance(hue.bottom);
+    const tail = appearance(hue.tail);
 
     ctx.save();
     ctx.translate(state.x,state.y);
@@ -404,7 +410,7 @@
     ctx.beginPath();ctx.moveTo(25,-4);ctx.lineTo(53,-18);ctx.quadraticCurveTo(47,-1,59,1);
     ctx.quadraticCurveTo(48,3,53,18);ctx.lineTo(25,6);ctx.closePath();ctx.fill();
     // Preserve the existing subtle body glow; the tail remains fill-only.
-    ctx.shadowColor = state.view==='fish' ? '#dfb75d55' : '#dae4dc55';
+    ctx.shadowColor = submerged && state.view==='fish' ? '#dfb75d55' : '#dae4dc55';
     ctx.shadowBlur = 12;
     // Body fixed shape, independent of selected Redgrass bait profile.
     ctx.beginPath();
@@ -419,7 +425,7 @@
     if (hue.speckCount && hue.fleckColors.length) {
       for (let i = 0; i < hue.speckCount; i++) {
         const pigment = hue.fleckColors[i % hue.fleckColors.length];
-        ctx.fillStyle = rgb(seenColor(pigment, deep));
+        ctx.fillStyle = rgb(appearance(pigment));
         const fx = -20 + (i * 29 % 49);
         const fy = -6 + (i * 7 % 12);
         ctx.beginPath();
@@ -428,7 +434,7 @@
       }
     }
     // A faint inside-the-body pearlescent streak, never an exterior outline.
-    ctx.strokeStyle = hue.sheen ? rgb(seenColor(hue.sheen, deep)) : '#ffffff33';
+    ctx.strokeStyle = hue.sheen ? rgb(appearance(hue.sheen)) : '#ffffff33';
     ctx.globalAlpha = alpha * (hue.sheen ? 0.32 : 0.16);
     ctx.lineWidth = 1;
     for(let x=-12;x<27;x+=10){ctx.beginPath();ctx.moveTo(x,-4);ctx.lineTo(x+8,6);ctx.stroke();}
@@ -437,7 +443,7 @@
     ctx.save();ctx.translate(state.x,state.y);ctx.rotate(angle);
     ctx.globalAlpha=clamp(alpha+.15,0,1);
     // Jighead and fixed hook.
-    ctx.fillStyle=state.view==='fish'?'#c3b482':'#c6c9c4';
+    ctx.fillStyle=submerged && state.view==='fish'?'#c3b482':'#c6c9c4';
     ctx.strokeStyle='#253039';ctx.lineWidth=1.4;
     ctx.beginPath();ctx.arc(-30,0,8,0,Math.PI*2);ctx.fill();ctx.stroke();
     ctx.fillStyle='#111919';ctx.beginPath();ctx.arc(-33,-2,2.5,0,Math.PI*2);ctx.fill();

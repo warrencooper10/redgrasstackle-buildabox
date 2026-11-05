@@ -10,6 +10,7 @@ const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const callbacks = {};
 const elements = new Map();
 const gradients = [];
+const baitPaints = [];
 let nextFrame = null;
 
 const context2d = new Proxy({}, {
@@ -23,7 +24,13 @@ const context2d = new Proxy({}, {
     }
     return key in target ? target[key] : () => {};
   },
-  set(target, key, value) { target[key] = value; return true; }
+  set(target, key, value) {
+    if (key === 'fillStyle' && typeof value === 'string' && value.startsWith('rgb(')) {
+      baitPaints.push(value);
+    }
+    target[key] = value;
+    return true;
+  }
 });
 const node = id => {
   if (!elements.has(id)) {
@@ -155,4 +162,43 @@ assert.equal(node('reelButton').disabled,false);
 fire('resetButton');
 assert.equal(node('depthReadout').textContent,'0.0');
 assert.match(node('phaseReadout').textContent,/READY/);
-console.log('PASS: 12 colors × 3 water × 3 weather × 2 vision = 216 scenarios; slow fall/retrieve, splash, depth tags, fish water palette, reset');
+
+// Outdoor bait appearance must not respond to sky, water, or Fish presets.
+// True Minnow has no glitter flecks, giving three unambiguous RGB paint calls
+// (tail, body, belly) to inspect without needing a real browser Canvas.
+const lastBaitPaints = () => baitPaints.slice(-3).join('|');
+const snapshot = change => { baitPaints.length=0; change(); return lastBaitPaints(); };
+choose('colorGroup','color','true');
+choose('waterGroup','water','clear');
+choose('viewGroup','view','human');
+const drySun = snapshot(() => choose('weatherGroup','weather','sun'));
+assert.equal(drySun, 'rgb(187,201,172)|rgb(145,158,118)|rgb(216,224,220)');
+const dryCloudy = snapshot(() => choose('weatherGroup','weather','partly'));
+const dryOvercast = snapshot(() => choose('weatherGroup','weather','overcast'));
+assert.equal(drySun, dryCloudy, 'Partly cloudy cannot change a dry bait');
+assert.equal(drySun, dryOvercast, 'Overcast cannot change a dry bait');
+assert.equal(snapshot(() => choose('viewGroup','view','fish')), drySun,
+  'Fish mode cannot recolor a bait before it enters water');
+assert.equal(snapshot(() => choose('waterGroup','water','muddy')), drySun,
+  'Muddy water cannot recolor a bait that is still in air');
+
+// Changing conditions at depth DOES change the simulated bait appearance.
+const wetOvercast = snapshot(() => fire('depthSlider','input',{target:{value:'10'}}));
+const wetSunny = snapshot(() => choose('weatherGroup','weather','sun'));
+assert.ok(wetSunny !== drySun, 'Water filtering should begin after entry');
+assert.ok(wetSunny !== wetOvercast, 'Weather should still affect the bait underwater');
+assert.equal(snapshot(() => fire('resetButton')),drySun,
+  'After reset, bait must return to original dry colors');
+
+// The cast is also airborne, not merely the idle state.
+fire('castButton');
+frames(50000,8);
+assert.match(node('phaseReadout').textContent,/CASTING/);
+assert.equal(snapshot(() => choose('weatherGroup','weather','overcast')),drySun,
+  'Weather cannot recolor an airborne bait');
+frames(51000,30);
+assert.match(node('phaseReadout').textContent,/SPLASH/);
+assert.ok(snapshot(() => choose('weatherGroup','weather','sun')) !== drySun,
+  'At splash the water/weather renderer should take over');
+
+console.log('PASS: 216 scenarios, slow motion, splash, depth tags, fish water palette, dry/airborne bait invariance, wet condition changes, reset');
