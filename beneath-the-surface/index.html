@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1115">
+  <meta name="description" content="Explore how water clarity, daylight, depth, and possible crappie vision change the appearance of a bait. An interactive, research-informed 2D demonstration by Redgrass Tackle.">
+  <title>Beneath the Surface | Redgrass Tackle</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <div class="brand"><span>REDGRASS TACKLE <em> / FIELD LAB</em></span></div>
+      <div class="eyebrow"><span class="eyebrow-rule"></span> EDUCATION / INTERACTIVE EXPERIENCE <span class="eyebrow-rule"></span></div>
+      <h1>BENEATH <i>THE</i> SURFACE<span class="period">.</span></h1>
+      <p class="dek">Same bait. Different light. A look at how water, sky, depth, and vision can change what you see.</p>
+      <div class="intro-meta"><span>01 / LIGHT &amp; COLOR</span><span>2D INTERACTIVE EXHIBIT</span><span>ILLUSTRATIVE · NOT A CATCH PREDICTION</span></div>
+    </header>
+
+    <section class="experience" aria-labelledby="sim-heading">
+      <h2 id="sim-heading" class="visually-hidden">Underwater color and vision simulator</h2>
+      <div class="scene-col">
+        <div class="scene">
+          <canvas id="waterScene" width="1100" height="640" role="img" aria-label="Animated side view of an angler casting a single bait into a freshwater lake. The bait sinks through a water column and retrieves along a diagonal path. Appearance changes as you choose water clarity, weather, color and vision mode."></canvas>
+          <div class="scene-top">
+            <div class="scene-label"><span class="tiny-light"></span> FIELD VIEW <span class="divider">/</span> <span id="viewLabel">HUMAN</span></div>
+            <div class="scene-depth"><span>DEPTH</span> <strong id="depthReadout">0.0</strong><span>FT</span></div>
+          </div>
+          <div class="stage-readout" aria-live="polite">
+            <span id="phaseReadout">READY TO CAST</span>
+            <span class="dot">·</span><span id="conditionReadout">CLEAR WATER / FULL SUN</span>
+          </div>
+          <div class="scene-scale" aria-hidden="true"><span>0′</span><span>10′</span><span>20′</span><span>30′</span></div>
+        </div>
+
+        <div class="transport">
+          <div class="transport-buttons">
+            <button type="button" class="action primary" id="castButton"><span>↗</span> CAST THE BAIT</button>
+            <button type="button" class="action" id="pauseButton" disabled>PAUSE</button>
+            <button type="button" class="action" id="reelButton" disabled>REEL IN <span>↖</span></button>
+            <button type="button" class="action icon-only" id="resetButton" aria-label="Reset animation" title="Reset animation">↺</button>
+          </div>
+          <div class="depth-scrub">
+            <label for="depthSlider">INSPECT DEPTH</label>
+            <input id="depthSlider" type="range" min="0" max="30" step="0.5" value="0" aria-describedby="scrubHelp">
+            <output id="scrubOutput" for="depthSlider">0 FT</output>
+          </div>
+          <p id="scrubHelp" class="micro-note">Drag the depth control to pause and inspect the bait at any depth. Cast or reel to resume motion.</p>
+        </div>
+
+        <article class="learn-card" aria-live="polite">
+          <div class="learn-crest">FIELD NOTE <span id="noteCount">01</span></div>
+          <div class="learn-content">
+            <h3 id="factTitle">Light changes as it travels through water.</h3>
+            <p id="factBody">As a bait sinks, the light illuminating it changes. This exhibit simplifies the science so you can explore the difference.</p>
+            <a id="factSource" href="https://www.usgs.gov/centers/western-geographic-science-center/introduction-aquatic-remote-sensing" target="_blank" rel="noopener noreferrer">OPEN SUPPORTING RESEARCH ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <aside class="controls" aria-label="Simulation conditions">
+        <div class="panel-top"><span>LAB CONTROLS</span><span class="panel-ref">RGT / 001</span></div>
+        <div class="panel-intro">CHANGE THE CONDITIONS<span>01—04</span></div>
+
+        <fieldset class="control-group">
+          <legend><span class="count">01</span> WATER CLARITY</legend>
+          <div class="button-stack" id="waterGroup">
+            <button type="button" class="choice active" data-water="clear" aria-pressed="true"><span class="water-mark clear"></span><span>CLEAR</span><small>Longer visibility</small></button>
+            <button type="button" class="choice" data-water="stained" aria-pressed="false"><span class="water-mark stained"></span><span>STAINED</span><small>Colored water</small></button>
+            <button type="button" class="choice" data-water="muddy" aria-pressed="false"><span class="water-mark muddy"></span><span>MUDDY</span><small>More suspended matter</small></button>
+          </div>
+        </fieldset>
+
+        <fieldset class="control-group">
+          <legend><span class="count">02</span> BAIT COLOR</legend>
+          <div class="color-grid" id="colorGroup" aria-label="Choose bait color">
+            <button class="color-choice active" type="button" data-color="monkey" aria-pressed="true"><span class="color-dot" style="--swatch:#ccd0dc"></span><span>MONKEY<br>MILK</span></button>
+            <button class="color-choice" type="button" data-color="true" aria-pressed="false"><span class="color-dot" style="--swatch:#a4b9bc"></span><span>TRUE<br>MINNOW</span></button>
+            <button class="color-choice" type="button" data-color="sunrise" aria-pressed="false"><span class="color-dot" style="--swatch:#ee782b"></span><span>SUNRISE<br>ORANGE</span></button>
+            <button class="color-choice" type="button" data-color="red" aria-pressed="false"><span class="color-dot" style="--swatch:#be4036"></span><span>RED<br>BELLY</span></button>
+            <button class="color-choice" type="button" data-color="toad" aria-pressed="false"><span class="color-dot" style="--swatch:#8ebd52"></span><span>TOAD<br>FROG</span></button>
+          </div>
+          <p class="control-explain">Five illustrative Redgrass color references. Not measured material spectra or exact product photography.</p>
+        </fieldset>
+
+        <fieldset class="control-group">
+          <legend><span class="count">03</span> WEATHER</legend>
+          <div class="weather-grid" id="weatherGroup">
+            <button type="button" class="weather-choice active" data-weather="sun" aria-pressed="true"><span class="weather-glyph">☀</span>FULL SUN</button>
+            <button type="button" class="weather-choice" data-weather="partly" aria-pressed="false"><span class="weather-glyph">⛅</span>PARTLY</button>
+            <button type="button" class="weather-choice" data-weather="overcast" aria-pressed="false"><span class="weather-glyph">☁</span>OVERCAST</button>
+          </div>
+          <p class="control-explain">Three representative light conditions, not live weather measurements.</p>
+        </fieldset>
+
+        <fieldset class="control-group last">
+          <legend><span class="count">04</span> VISION</legend>
+          <div class="view-switch" id="viewGroup">
+            <button type="button" data-view="human" aria-pressed="true" class="active">HUMAN</button>
+            <button type="button" data-view="fish" aria-pressed="false">FISH <span class="smallstar">*</span></button>
+          </div>
+          <p class="control-explain" id="viewExplain">A human-readable approximation of the bait and water's appearance under the chosen conditions.</p>
+          <p class="fish-caveat" id="fishCaveat" hidden>* Fish mode is a simplified, research-informed palette illustrating possible crappie color and contrast sensitivity. It is not a literal image of what a crappie sees.</p>
+        </fieldset>
+        <div class="panel-bottom"><span>EXPERIMENT, DON'T GUESS.</span><span>↗</span></div>
+      </aside>
+    </section>
+
+    <section class="about" aria-labelledby="about-heading">
+      <div class="about-head"><p class="section-number">THE SCIENCE / WITHOUT THE SALES PITCH</p><h2 id="about-heading">WHAT YOU'RE <i>LOOKING AT.</i></h2></div>
+      <div class="about-grid">
+        <div class="explain-block"><span>01 / RESEARCH</span><h3>What we know</h3><p>Light is absorbed and scattered as it passes through water. Suspended particles and dissolved color change how much light—and which wavelengths—remain. Studies of white crappie and related sunfish provide clues about their visual systems.</p></div>
+        <div class="explain-block"><span>02 / ILLUSTRATION</span><h3>What we're approximating</h3><p>This demonstration uses example clarity settings, a simplified three-channel light attenuation calculation, illustrative bait colors and stylized viewing palettes. It is not calibrated to a particular lake, bait material or actual fish retina.</p></div>
+        <div class="explain-block"><span>03 / LIMITS</span><h3>What we don't claim</h3><p>We are not claiming to show exactly what a crappie experiences—or promising which color catches fish. Depth is a visual timeline, not a prediction of lure action. No bait recommendations, rigging guidance or bite forecasts live in this exhibit.</p></div>
+      </div>
+    </section>
+
+    <section class="research" aria-labelledby="research-heading">
+      <div class="research-intro"><p class="section-number">SOURCES / READING ROOM</p><h2 id="research-heading">THE FOOTNOTES <i>MATTER.</i></h2><p>The animation takes some artistic license. The underlying ideas should not be a mystery. These sources are available for anyone who wants to look deeper.</p></div>
+      <div class="source-list">
+        <a href="https://www.usgs.gov/centers/western-geographic-science-center/introduction-aquatic-remote-sensing" target="_blank" rel="noopener noreferrer"><span>01</span><span><strong>Introduction to Aquatic Remote Sensing</strong><small>USGS · Water color, suspended particles, dissolved matter and light</small></span><span>↗</span></a>
+        <a href="https://www.usgs.gov/publications/vertical-attenuation-light-charlotte-harbor-a-shallow-subtropical-estuary-south" target="_blank" rel="noopener noreferrer"><span>02</span><span><strong>Vertical Attenuation of Light</strong><small>USGS · Example of how different water constituents affect light transmission</small></span><span>↗</span></a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/2354354/" target="_blank" rel="noopener noreferrer"><span>03</span><span><strong>Visual Acuity in White Crappie</strong><small>Peer-reviewed study · Crappie retinal cones and visually guided behavior</small></span><span>↗</span></a>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11974496/" target="_blank" rel="noopener noreferrer"><span>04</span><span><strong>Visual Systems in Centrarchids</strong><small>Molecular Ecology (2025) · Vision research in six related sunfish species, not direct crappie color calibration</small></span><span>↗</span></a>
+      </div>
+      <details class="method"><summary>VIEW MODEL ASSUMPTIONS AND LIMITATIONS <span>+</span></summary><div class="method-copy"><p>For illustration, relative light in three broad color channels is reduced with depth using <code>I(z) = I(0) × exp(−k × z)</code>. The coefficients are illustrative, not measured for Grenada, Enid, Sardis, or any other lake. Each water preset uses different example attenuation coefficients and a water-color/scattering treatment; the app does not calculate a full underwater radiative-transfer solution.</p><p>Weather changes the example amount and character of incoming daylight. Selected bait colors are artistic approximations, not measured reflectance spectra. Fish mode transforms the resulting colors into an intentionally different, green/red-sensitive illustrative palette inspired by research in related sunfish. Since the specific crappie spectral sensitivity and perceptual appearance are not established here, this should be read as <em>one possible visualization</em>, not proof of how a crappie sees.</p><p>The animation artificially enlarges the bait and adjusts scene exposure so visitors can observe color changes. Contrast and apparent visibility do not imply a measured detection range or a fish's response. A fully quantitative comparison would require site measurements, bait reflectance testing, viewing geometry and validated visual physiology.</p></div></details>
+    </section>
+    <footer class="footer"><span>REDGRASS TACKLE / BENEATH THE SURFACE</span><span>BUILT TO HELP YOU UNDERSTAND — NOT TELL YOU WHAT TO THROW.</span></footer>
+  </main>
+  <script src="./app.js" defer></script>
+</body>
+</html>
