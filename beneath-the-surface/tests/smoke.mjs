@@ -63,6 +63,12 @@ for (const id of ['waterScene','castButton','reelButton','pauseButton','resetBut
   'depthTag','tagDepth','tagStage','tagTitle','tagBody','tagSource']) {
   assert.ok(html.includes('id="' + id + '"'), 'Missing control: ' + id);
 }
+// Guard the owner-confirmed Red Belly composition against future drift.
+assert.match(app, /top:\s*TRUE_MINNOW_BASE\.top/);
+assert.match(app, /tail:\s*TRUE_MINNOW_BASE\.tail/);
+assert.match(app, /bottom:\s*\[240,\s*48,\s*42\]/);
+assert.equal((html.match(/--swatch-top:/g)||[]).length, 5, 'Each color needs a two-tone reference swatch');
+assert.equal((html.match(/--swatch-bottom:/g)||[]).length, 5);
 assert.match(node('phaseReadout').textContent, /READY/);
 assert.equal(node('depthTag').hidden,true);
 for (const depth of [1,5,10,20,30]) {
