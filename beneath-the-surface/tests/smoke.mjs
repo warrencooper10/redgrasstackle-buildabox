@@ -67,8 +67,17 @@ for (const id of ['waterScene','castButton','reelButton','pauseButton','resetBut
 assert.match(app, /top:\s*TRUE_MINNOW_BASE\.top/);
 assert.match(app, /tail:\s*TRUE_MINNOW_BASE\.tail/);
 assert.match(app, /bottom:\s*\[240,\s*48,\s*42\]/);
-assert.equal((html.match(/--swatch-top:/g)||[]).length, 5, 'Each color needs a two-tone reference swatch');
-assert.equal((html.match(/--swatch-bottom:/g)||[]).length, 5);
+// Keep owner-confirmed shared color constructions rather than independent guesses.
+assert.match(app, /bottom:\s*MONKEY_MILK_BASE\.bottom/);
+assert.match(app, /bottom:\s*LEMON_PEPPER_BASE\.bottom/);
+assert.match(app, /opacity:\s*0\.69/); // nearly translucent Monkey Milk
+assert.match(app, /Black:red = 5:1/);
+assert.match(app, /name:\s*'TWILIGHT'/);
+assert.match(app, /name:\s*'STINGRAY'/);
+assert.match(app, /name:\s*'WHITETREUSE'/);
+
+assert.equal((html.match(/--swatch-top:/g)||[]).length, 12, 'Each color needs a two-tone reference swatch');
+assert.equal((html.match(/--swatch-bottom:/g)||[]).length, 12);
 assert.match(node('phaseReadout').textContent, /READY/);
 assert.equal(node('depthTag').hidden,true);
 for (const depth of [1,5,10,20,30]) {
@@ -97,7 +106,7 @@ assert.equal(node('tagDepth').textContent, '30 FT');
 assert.equal(node('reelButton').disabled, false);
 
 const waters=['clear','stained','muddy'];
-const colors=['monkey','true','sunrise','red','toad'];
+const colors=['monkey','true','sunrise','red','toad','og','twilight','lemon','stingray','tux','whitetreuse','electric'];
 const weathers=['sun','partly','overcast'];
 const views=['human','fish'];
 const topWater = () => {
@@ -124,7 +133,7 @@ for (const w of waters) for (const c of colors) for (const weather of weathers) 
   assert.equal(node('fishCaveat').hidden, view!=='fish');
   scenarios++;
 }
-assert.equal(scenarios,90);
+assert.equal(scenarios,216);
 fire('reelButton');
 frames(28000,350);
 assert.match(node('phaseReadout').textContent, /BACK ON SHORE/);
@@ -136,4 +145,4 @@ assert.equal(node('reelButton').disabled,false);
 fire('resetButton');
 assert.equal(node('depthReadout').textContent,'0.0');
 assert.match(node('phaseReadout').textContent,/READY/);
-console.log('PASS: quarter-speed fall/retrieve, splash and 5 depth tags, clear/stained/muddy fish-water palettes, pause, 90 scenarios, reset');
+console.log('PASS: 12 colors × 3 water × 3 weather × 2 vision = 216 scenarios; slow fall/retrieve, splash, depth tags, fish water palette, reset');

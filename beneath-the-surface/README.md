@@ -12,7 +12,7 @@ Independent, dependency-free 2D educational simulator. No changes to Build-a-Box
 ## Experience
 
 - Fixed illustrative bait silhouette, no profile selector.
-- Select 1 of 5 initial Redgrass color references: Monkey Milk, True Minnow, Sunrise Orange, Red Belly, ToadFrog.
+- Select 1 of **12** Redgrass colors: Monkey Milk, True Minnow, Sunrise Orange, Red Belly, ToadFrog, OG, Twilight, Lemon Pepper, Stingray, Tuxedo, Whitetreuse, Electric Blue.
 - Clear / Stained / Muddy water.
 - Full Sun / Partly Cloudy / Overcast (100% cloud cover).
 - **Human** visual approximation / **Fish** research-informed *illustrative palette*.
@@ -21,26 +21,28 @@ Independent, dependency-free 2D educational simulator. No changes to Build-a-Box
 - Pause/resume, replay, and drag depth scrubber.
 - Field notes react to conditions, linking directly to research.
 - Responsive layout; full document scroll rather than internal controls scrollbars; reduced-motion behavior.
-- 90 scenario combinations, with continuous depth interpolation.
+- **216** scenario combinations (12 colors × 3 clarity presets × 3 weather presets × 2 views), with continuous depth interpolation.
 
-## Color reference correction — November 2026
+## 12 color references — owner descriptions and photos, November 2026
 
-The first five visual bait colors have been matched **by eye** to owner-supplied
-Chubby Minnow reference photographs, not to measured spectral-reflectance data.
-The same fixed bait silhouette remains in use; this is **not** the separate bait-profile animation.
+All 12 are **visual approximations from the owner's photographs and descriptions**, not laboratory reflectance or fluorescence measurements. A single simplified bait silhouette stays in use; bait profile, fall behavior, rigging and retrieve speed are *not* additional controls. Material rendering is deliberately broad-strokes: two-tone fill, a little transparency, sparse flecks and optional pearl sheen. The tail is always fill-only with no illuminated outline.
 
-| Simulator option | Reference supplied | Illustrative color relationship |
+| Color | Photo / reference | Simplified representation |
 | --- | --- | --- |
-| Monkey Milk | `chubby_monkey.jpg` | Pearlescent ice blue/white, scattered dark blue/pink flecks |
-| True Minnow | `chubby_minnow.jpg` | Pearl-silver/olive back, light silver belly and tail; no saturated teal |
-| Sunrise Orange | `chubby_sunrise.jpg` | Bright orange upper / vivid yellow belly, sparse dark flecks |
-| Red Belly | [Redgrass product reference](https://www.redgrasstackle.com/product/3-chubby-minnow-red-belly) | **Exactly True Minnow's top and tail**, with vivid red belly; not an unrelated cream/red profile |
-| ToadFrog | `chubby_toad.jpg` | Dark charcoal back, fluorescent chartreuse belly, a few dark specks |
+| Monkey Milk | `chubby_monkey.jpg` | Nearly translucent vaguely milky white, blue sheen, **5:1 black-to-red glitter** |
+| OG | `chubby_og.jpg` | Fluorescent lime upper over Monkey Milk lower, inheriting the translucent base and flecks |
+| Twilight | `chubby_twilight.jpg` | Junebug purple upper / fluorescent pink lower |
+| Lemon Pepper | `chubby_lemon.jpg` | Opaque chartreuse with small black flake |
+| Stingray | `chubby_stingray.jpg` | Custom blue-black and blue/silver; matched by eye to supplied photograph |
+| Tuxedo | `chubby_tux.jpg` | Black with light silver flake over bright silver |
+| Whitetreuse | `chubby_whitetreuse.jpg` | Bright fluorescent white upper over chartreuse lower |
+| Electric Blue | `chubby_electricblue.jpg` | Fluorescent blue upper over Lemon Pepper lower, sharing its chartreuse base |
+| True Minnow | `chubby_minnow.jpg` | Pearl-silver / muted olive upper and silver lower |
+| Sunrise Orange | `chubby_sunrise.jpg` | Orange upper / bright yellow lower, sparse black flecks |
+| Red Belly | [official product reference](https://www.redgrasstackle.com/product/3-chubby-minnow-red-belly) | **True Minnow's exact upper and tail** with vivid red lower |
+| ToadFrog | `chubby_toad.jpg` | Dark charcoal upper over fluorescent chartreuse with sparse dark specks |
 
-Control swatches now display two tones. Source values are hand-tuned screen RGB
-approximations under one photographed lighting setup and will not necessarily
-match other monitors, lighting, or the appearance of the real baits in water.
-The attenuation and Fish approximations are unchanged.
+Color swatches depict both halves. Fluorescent names are product descriptions, not claims of physically modeled fluorescence. Images are owner references and are not required for the deployed static application; **no private photo assets, external scripts or dependencies were added**. RGB palettes can be adjusted later without touching animation logic. The model's water clarity, weather, Human/Fish transforms and educational limitations remain unchanged.
 
 ## What is and is not modeled
 
