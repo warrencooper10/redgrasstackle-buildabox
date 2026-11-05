@@ -391,7 +391,7 @@
   }
 
   function updateControls() {
-    const moving=['cast','fall','reel'].includes(state.phase);
+    const moving=['cast','splash','fall','reel'].includes(state.phase);
     el('castButton').disabled=moving;
     el('reelButton').disabled=moving || (state.phase==='idle'||state.phase==='done') || state.depth <= 0;
     el('pauseButton').disabled=!moving;
@@ -564,7 +564,7 @@
   el('castButton').addEventListener('click', startCast);
   el('reelButton').addEventListener('click', startReel);
   el('pauseButton').addEventListener('click', () => {
-    if(!['cast','fall','reel'].includes(state.phase))return;
+    if(!['cast','splash','fall','reel'].includes(state.phase))return;
     state.paused=!state.paused;
     updateControls();
   });
