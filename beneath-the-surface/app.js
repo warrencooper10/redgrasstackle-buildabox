@@ -60,9 +60,14 @@
   // Owner's photos and color descriptions are the visual reference (Nov 2026).
   // Approximate RGB, two-tone color, translucency and sparse fleck treatment only:
   // NOT measured pigments, fluorescence, spectral reflectance, or fish perception.
+  // Slightly stronger olive back; pearl/silver belly remains neutral.
+  // These are illustrative display colors matched by eye to owner photographs.
   const TRUE_MINNOW_BASE = {
-    top: [174, 188, 177], bottom: [216, 224, 220], tail: [201, 215, 203]
+    top: [145, 158, 118], bottom: [216, 224, 220], tail: [187, 201, 172]
   };
+  // "Chartreuse" here means the owner's yellow-dominant, highlighter-bright
+  // fluorescent yellow — NOT a lime-green paint. Shared by all yellow bases.
+  const HIGHLIGHTER_CHARTREUSE = [248, 255, 5];
   const MONKEY_MILK_BASE = {
     top: [209, 220, 232], bottom: [239, 241, 242], tail: [220, 232, 239],
     opacity: 0.69, sheen: [123, 186, 248],
@@ -73,7 +78,8 @@
     ], speckCount: 12
   };
   const LEMON_PEPPER_BASE = {
-    top: [209, 249, 14], bottom: [219, 253, 22], tail: [211, 252, 27],
+    top: HIGHLIGHTER_CHARTREUSE, bottom: HIGHLIGHTER_CHARTREUSE,
+    tail: HIGHLIGHTER_CHARTREUSE,
     opacity: 1, fleckColors: [[24, 36, 20]], speckCount: 10
   };
   const COLORS = {
@@ -84,7 +90,7 @@
     },
     sunrise: {
       name: 'SUNRISE ORANGE',
-      top: [253, 121, 18], bottom: [253, 215, 44], tail: [255, 143, 34],
+      top: [255, 109, 6], bottom: HIGHLIGHTER_CHARTREUSE, tail: [255, 135, 13],
       opacity: 1, fleckColors: [[54, 39, 26]], speckCount: 5
     },
     red: {
@@ -94,7 +100,7 @@
     },
     toad: {
       name: 'TOADFROG',
-      top: [31, 47, 43], bottom: [178, 247, 27], tail: [151, 219, 58],
+      top: [31, 47, 43], bottom: HIGHLIGHTER_CHARTREUSE, tail: [175, 229, 48],
       opacity: 1, fleckColors: [[19, 32, 32]], speckCount: 6
     },
     og: {
@@ -125,13 +131,13 @@
     },
     whitetreuse: {
       name: 'WHITETREUSE',
-      top: [245, 254, 249], bottom: [184, 246, 29], tail: [212, 253, 152],
+      top: [245, 254, 249], bottom: HIGHLIGHTER_CHARTREUSE, tail: [230, 253, 164],
       opacity: 0.96, fleckColors: [], speckCount: 0
     },
     electric: {
       name: 'ELECTRIC BLUE',
       top: [13, 102, 247], bottom: LEMON_PEPPER_BASE.bottom,
-      tail: [30, 190, 181], opacity: 1,
+      tail: [107, 228, 66], opacity: 1,
       fleckColors: LEMON_PEPPER_BASE.fleckColors, speckCount: 8
     }
   };

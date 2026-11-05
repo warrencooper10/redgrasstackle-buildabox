@@ -72,6 +72,16 @@ assert.match(app, /bottom:\s*MONKEY_MILK_BASE\.bottom/);
 assert.match(app, /bottom:\s*LEMON_PEPPER_BASE\.bottom/);
 assert.match(app, /opacity:\s*0\.69/); // nearly translucent Monkey Milk
 assert.match(app, /Black:red = 5:1/);
+assert.match(app, /const HIGHLIGHTER_CHARTREUSE = \[248, 255, 5\]/);
+assert.match(app, /top: HIGHLIGHTER_CHARTREUSE, bottom: HIGHLIGHTER_CHARTREUSE/);
+assert.match(app, /name: 'SUNRISE ORANGE',[\s\S]*?bottom: HIGHLIGHTER_CHARTREUSE/);
+assert.match(app, /name: 'TOADFROG',[\s\S]*?bottom: HIGHLIGHTER_CHARTREUSE/);
+assert.match(app, /name: 'WHITETREUSE',[\s\S]*?bottom: HIGHLIGHTER_CHARTREUSE/);
+assert.match(app, /name: 'ELECTRIC BLUE',[\s\S]*?bottom: LEMON_PEPPER_BASE\.bottom/);
+assert.match(app, /top: \[145, 158, 118\], bottom: \[216, 224, 220\]/);
+assert.ok((html.match(/--swatch-bottom:#f8ff05/g) || []).length >= 4,
+  'All highlighter-yellow chartreuse references must share the revised swatch');
+
 assert.match(app, /name:\s*'TWILIGHT'/);
 assert.match(app, /name:\s*'STINGRAY'/);
 assert.match(app, /name:\s*'WHITETREUSE'/);
