@@ -16,7 +16,8 @@ Independent, dependency-free 2D educational simulator. No changes to Build-a-Box
 - Clear / Stained / Muddy water.
 - Full Sun / Partly Cloudy / Overcast (100% cloud cover).
 - **Human** visual approximation / **Fish** research-informed *illustrative palette*.
-- Cast; cinematic tracking zoom; continuous descent from 0 to 30 ft; hold; diagonal reel in.
+- Cast; readable water-entry SPLASH! ripple; cinematic tracking zoom; **16.8-second** continuous descent from 0 to 30 ft; hold; **15.2-second** diagonal retrieve (both 4× slower than v1).
+- Dynamic water-specific educational tags at SPLASH!, 1 ft, 5 ft, 10 ft, 20 ft and 30 ft, with research link; milestone captions remain readable and repeat on ascent.
 - Pause/resume, replay, and drag depth scrubber.
 - Field notes react to conditions, linking directly to research.
 - Responsive layout; full document scroll rather than internal controls scrollbars; reduced-motion behavior.
@@ -28,11 +29,11 @@ The application uses a broad RGB attenuation illustration:
 
 `relative light channel at depth z = weather factor × exp(−k_channel × z_meters)`
 
-All optical coefficients (per meter), three sky presets, representative bait RGB colors, scattering veil and fish-palette mapping are **example values chosen for educational clarity**. They are not sourced field measurements, measured material reflectance, a full spectral radiative-transfer model, or real retinal sensitivity functions. Fish mode visually shifts colors toward a green/red-influenced palette inspired by related-sunfish research; it is **not** direct species-specific modeling or a claim that fish see the exact rendered picture. The entire water background and bait are rendered consistently under the selected conditions. Camera zoom, apparent lure size and exposure are cinematic conventions.
+All optical coefficients (per meter), three sky presets, representative bait RGB colors, scattering veil and fish-palette mapping are **example values chosen for educational clarity**. They are not sourced field measurements, measured material reflectance, a full spectral radiative-transfer model, or real retinal sensitivity functions. Fish mode applies an **illustrative** red/green-sensitive re-palette to the bait while only lightly desaturating the water itself, preserving clear water's blue-green character, stained water's green-brown character and muddy water's brown character. Related-sunfish research does not imply that all fish-view water should be green. This is **not** direct species-specific modeling or a claim that crappie see the rendered RGB values. Camera zoom, apparent lure size and exposure are cinematic conventions.
 
 Stained vs muddy is intentionally treated as different kinds of optical conditions, not just a uniform darkening filter. The illustrative background and contrast fade faster in muddy water.
 
-We do not suggest any bait is better, predict fish response, teach rigging/weight/retrieve, or claim 30 ft automatically means darkness.
+We do not suggest any bait is better, predict fish response, teach rigging/weight/retrieve, or claim 30 ft automatically means darkness. A '1 FT' milestone notes that the bait is easy to recognize in our *clear-water example*, not that it is universally 100% visible in shallow water.
 
 ## Grounding and limitations — primary sources
 
