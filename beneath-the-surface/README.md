@@ -32,15 +32,17 @@ All 12 are **visual approximations from the owner's photographs and descriptions
 | Monkey Milk | `chubby_monkey.jpg` | Nearly translucent vaguely milky white, blue sheen, **5:1 black-to-red glitter** |
 | OG | `chubby_og.jpg` | Fluorescent lime upper over Monkey Milk lower, inheriting the translucent base and flecks |
 | Twilight | `chubby_twilight.jpg` | Junebug purple upper / fluorescent pink lower |
-| Lemon Pepper | `chubby_lemon.jpg` | Opaque chartreuse with small black flake |
+| Lemon Pepper | `chubby_lemon.jpg` | Opaque **highlighter-yellow chartreuse** with small black flake (yellow-led rather than lime-green) |
 | Stingray | `chubby_stingray.jpg` | Custom blue-black and blue/silver; matched by eye to supplied photograph |
 | Tuxedo | `chubby_tux.jpg` | Black with light silver flake over bright silver |
-| Whitetreuse | `chubby_whitetreuse.jpg` | Bright fluorescent white upper over chartreuse lower |
-| Electric Blue | `chubby_electricblue.jpg` | Fluorescent blue upper over Lemon Pepper lower, sharing its chartreuse base |
-| True Minnow | `chubby_minnow.jpg` | Pearl-silver / muted olive upper and silver lower |
-| Sunrise Orange | `chubby_sunrise.jpg` | Orange upper / bright yellow lower, sparse black flecks |
+| Whitetreuse | `chubby_whitetreuse.jpg` | Bright fluorescent white upper over highlighter-yellow chartreuse lower |
+| Electric Blue | `chubby_electricblue.jpg` | Fluorescent blue upper over **Lemon Pepper highlighter-yellow** lower, sharing the same base |
+| True Minnow | `chubby_minnow.jpg` | More pronounced olive upper, still light pearl/silver lower |
+| Sunrise Orange | `chubby_sunrise.jpg` | Fluorescent orange upper over **highlighter-yellow chartreuse** lower, sparse black flecks |
 | Red Belly | [official product reference](https://www.redgrasstackle.com/product/3-chubby-minnow-red-belly) | **True Minnow's exact upper and tail** with vivid red lower |
-| ToadFrog | `chubby_toad.jpg` | Dark charcoal upper over fluorescent chartreuse with sparse dark specks |
+| ToadFrog | `chubby_toad.jpg` | Dark charcoal upper over brighter yellow-dominant fluorescent chartreuse with sparse dark specks |
+
+A shared `HIGHLIGHTER_CHARTREUSE` RGB reference now drives the Lemon Pepper body and the yellow lower halves of Sunrise Orange, Whitetreuse and ToadFrog. Electric Blue inherits Lemon Pepper's lower half. This reflects the owner's description of **chartreuse as fluorescent highlighter yellow**, rather than imposing an unrelated lime-green definition. OG remains its separate fluorescent lime. The True Minnow upper RGB is shifted toward olive, with Red Belly inheriting it automatically.
 
 Color swatches depict both halves. Fluorescent names are product descriptions, not claims of physically modeled fluorescence. Images are owner references and are not required for the deployed static application; **no private photo assets, external scripts or dependencies were added**. RGB palettes can be adjusted later without touching animation logic. The model's water clarity, weather, Human/Fish transforms and educational limitations remain unchanged.
 
