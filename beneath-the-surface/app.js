@@ -343,14 +343,15 @@
     if(state.phase==='reel') angle = -.22;
     ctx.rotate(angle);
     ctx.globalAlpha = alpha;
-    // Drop shadow and soft glow: artistic visibility assistance.
-    ctx.shadowColor = state.view==='fish' ? '#dfb75d55' : '#dae4dc55';
-    ctx.shadowBlur = 12;
-    ctx.lineWidth = 1.5;
-    ctx.strokeStyle = state.view==='fish' ? '#f7e2a4aa' : '#e7f3eccc';
+    // Tail: pure fill with NO border or glow. Its edge must not imply a
+    // highlighted/fluorescent outline that the real bait doesn't have.
+    ctx.shadowBlur = 0;
     ctx.fillStyle = rgb(tail);
     ctx.beginPath();ctx.moveTo(25,-4);ctx.lineTo(53,-18);ctx.quadraticCurveTo(47,-1,59,1);
-    ctx.quadraticCurveTo(48,3,53,18);ctx.lineTo(25,6);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.quadraticCurveTo(48,3,53,18);ctx.lineTo(25,6);ctx.closePath();ctx.fill();
+    // Preserve the existing subtle body glow; the tail remains fill-only.
+    ctx.shadowColor = state.view==='fish' ? '#dfb75d55' : '#dae4dc55';
+    ctx.shadowBlur = 12;
     // Body fixed shape, independent of selected Redgrass bait profile.
     ctx.beginPath();
     ctx.moveTo(-30,0);ctx.bezierCurveTo(-26,-13,-3,-11,17,-9);
