@@ -7,6 +7,9 @@ import { runInNewContext } from 'node:vm';
 
 const app = readFileSync(new URL('../app.js', import.meta.url), 'utf8');
 const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+// A fresh asset URL is required because GitHub Pages and browsers may retain
+// earlier app.js versions after a successful deployment.
+assert.match(html, /<script src="\.\/app\.js\?v=764cbab1-dry-bait" defer><\/script>/);
 const callbacks = {};
 const elements = new Map();
 const gradients = [];
