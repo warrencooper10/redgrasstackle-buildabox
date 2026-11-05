@@ -19,6 +19,7 @@ Independent, dependency-free 2D educational simulator. No changes to Build-a-Box
 - Cast; readable water-entry SPLASH! ripple; cinematic tracking zoom; **16.8-second** continuous descent from 0 to 30 ft; hold; **15.2-second** diagonal retrieve (both 4× slower than v1).
 - Dynamic water-specific educational tags at SPLASH!, 1 ft, 5 ft, 10 ft, 20 ft and 30 ft, with research link; milestone captions remain readable and repeat on ascent.
 - Pause/resume, replay, and drag depth scrubber.
+- **Dry bait color lock:** while on the hook or airborne, the bait retains its reference color under all three weather presets, water clarities and Human/Fish modes. Only after the `SPLASH!` state does underwater attenuation and approximate Fish recoloring apply; once retrieved above the surface, the normal dry bait returns. The sky and water scene still reflect the selected conditions.
 - Field notes react to conditions, linking directly to research.
 - Responsive layout; full document scroll rather than internal controls scrollbars; reduced-motion behavior.
 - **216** scenario combinations (12 colors × 3 clarity presets × 3 weather presets × 2 views), with continuous depth interpolation.
