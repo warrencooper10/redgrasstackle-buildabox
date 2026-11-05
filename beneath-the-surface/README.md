@@ -23,6 +23,25 @@ Independent, dependency-free 2D educational simulator. No changes to Build-a-Box
 - Responsive layout; full document scroll rather than internal controls scrollbars; reduced-motion behavior.
 - 90 scenario combinations, with continuous depth interpolation.
 
+## Color reference correction — November 2026
+
+The first five visual bait colors have been matched **by eye** to owner-supplied
+Chubby Minnow reference photographs, not to measured spectral-reflectance data.
+The same fixed bait silhouette remains in use; this is **not** the separate bait-profile animation.
+
+| Simulator option | Reference supplied | Illustrative color relationship |
+| --- | --- | --- |
+| Monkey Milk | `chubby_monkey.jpg` | Pearlescent ice blue/white, scattered dark blue/pink flecks |
+| True Minnow | `chubby_minnow.jpg` | Pearl-silver/olive back, light silver belly and tail; no saturated teal |
+| Sunrise Orange | `chubby_sunrise.jpg` | Bright orange upper / vivid yellow belly, sparse dark flecks |
+| Red Belly | [Redgrass product reference](https://www.redgrasstackle.com/product/3-chubby-minnow-red-belly) | **Exactly True Minnow's top and tail**, with vivid red belly; not an unrelated cream/red profile |
+| ToadFrog | `chubby_toad.jpg` | Dark charcoal back, fluorescent chartreuse belly, a few dark specks |
+
+Control swatches now display two tones. Source values are hand-tuned screen RGB
+approximations under one photographed lighting setup and will not necessarily
+match other monitors, lighting, or the appearance of the real baits in water.
+The attenuation and Fish approximations are unchanged.
+
 ## What is and is not modeled
 
 The application uses a broad RGB attenuation illustration:
