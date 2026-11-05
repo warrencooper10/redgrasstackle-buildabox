@@ -53,12 +53,41 @@
     partly: { name: 'PARTLY CLOUDY', amount: 0.72, sky: [128, 158, 171], sun: 0.52, cloud: 0.5 },
     overcast: { name: 'OVERCAST', amount: 0.45, sky: [125, 140, 150], sun: 0.1, cloud: 0.95 }
   };
+  // Color references visually matched to owner-supplied Chubby Minnow photos (Nov 2026).
+  // These display RGB approximations are NOT laboratory pigment/reflectance readings.
+  // True Minnow is a silvery pearl / muted olive back, not a saturated teal.
+  // Red Belly uses EXACTLY that True Minnow upper and tail with a red underside.
+  const TRUE_MINNOW_BASE = {
+    top: [174, 188, 177],
+    bottom: [216, 224, 220],
+    tail: [201, 215, 203]
+  };
   const COLORS = {
-    monkey: { name: 'MONKEY MILK', top: [195, 202, 222], bottom: [239, 236, 225], tail: [213, 217, 229] },
-    true: { name: 'TRUE MINNOW', top: [85, 132, 150], bottom: [218, 225, 211], tail: [152, 187, 190] },
-    sunrise: { name: 'SUNRISE ORANGE', top: [245, 123, 34], bottom: [240, 193, 71], tail: [245, 118, 43] },
-    red: { name: 'RED BELLY', top: [237, 222, 200], bottom: [185, 54, 48], tail: [209, 83, 62] },
-    toad: { name: 'TOADFROG', top: [67, 94, 45], bottom: [169, 202, 88], tail: [131, 172, 75] }
+    monkey: {
+      name: 'MONKEY MILK',
+      top: [172, 201, 227], bottom: [216, 227, 236], tail: [185, 205, 230],
+      fleckColors: [[23, 69, 121], [209, 78, 120], [24, 40, 59]], speckCount: 11
+    },
+    true: {
+      name: 'TRUE MINNOW', ...TRUE_MINNOW_BASE, fleckColors: [], speckCount: 0
+    },
+    sunrise: {
+      name: 'SUNRISE ORANGE',
+      top: [253, 121, 18], bottom: [253, 215, 44], tail: [255, 143, 34],
+      fleckColors: [[54, 39, 26]], speckCount: 5
+    },
+    red: {
+      name: 'RED BELLY',
+      top: TRUE_MINNOW_BASE.top,
+      bottom: [240, 48, 42],
+      tail: TRUE_MINNOW_BASE.tail,
+      fleckColors: [], speckCount: 0
+    },
+    toad: {
+      name: 'TOADFROG',
+      top: [31, 47, 43], bottom: [178, 247, 27], tail: [151, 219, 58],
+      fleckColors: [[19, 32, 32]], speckCount: 6
+    }
   };
   const state = {
     water: 'clear', color: 'monkey', weather: 'sun', view: 'human',
@@ -330,6 +359,19 @@
     ctx.bezierCurveTo(-8,10,-26,12,-30,0);ctx.closePath();
     ctx.fillStyle=rgb(body);ctx.fill();ctx.clip();
     ctx.fillStyle=rgb(belly);ctx.fillRect(-35,0,75,14);
+    // A few reference-informed flecks on colors that have them.
+    // Small and deterministic so the motion remains stable.
+    if (hue.speckCount && hue.fleckColors.length) {
+      for (let i = 0; i < hue.speckCount; i++) {
+        const pigment = hue.fleckColors[i % hue.fleckColors.length];
+        ctx.fillStyle = rgb(seenColor(pigment, deep));
+        const fx = -20 + (i * 29 % 49);
+        const fy = -6 + (i * 7 % 12);
+        ctx.beginPath();
+        ctx.arc(fx, fy, i % 4 === 0 ? 1.2 : 0.75, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
     ctx.strokeStyle='#ffffff33';ctx.lineWidth=1;
     for(let x=-12;x<27;x+=10){ctx.beginPath();ctx.moveTo(x,-4);ctx.lineTo(x+8,6);ctx.stroke();}
     ctx.restore();
