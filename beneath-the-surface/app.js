@@ -57,36 +57,82 @@
   // These display RGB approximations are NOT laboratory pigment/reflectance readings.
   // True Minnow is a silvery pearl / muted olive back, not a saturated teal.
   // Red Belly uses EXACTLY that True Minnow upper and tail with a red underside.
+  // Owner's photos and color descriptions are the visual reference (Nov 2026).
+  // Approximate RGB, two-tone color, translucency and sparse fleck treatment only:
+  // NOT measured pigments, fluorescence, spectral reflectance, or fish perception.
   const TRUE_MINNOW_BASE = {
-    top: [174, 188, 177],
-    bottom: [216, 224, 220],
-    tail: [201, 215, 203]
+    top: [174, 188, 177], bottom: [216, 224, 220], tail: [201, 215, 203]
+  };
+  const MONKEY_MILK_BASE = {
+    top: [209, 220, 232], bottom: [239, 241, 242], tail: [220, 232, 239],
+    opacity: 0.69, sheen: [123, 186, 248],
+    // Black:red = 5:1, repeated twice when speckCount is 12.
+    fleckColors: [
+      [28, 34, 47], [28, 34, 47], [28, 34, 47],
+      [28, 34, 47], [28, 34, 47], [188, 47, 59]
+    ], speckCount: 12
+  };
+  const LEMON_PEPPER_BASE = {
+    top: [209, 249, 14], bottom: [219, 253, 22], tail: [211, 252, 27],
+    opacity: 1, fleckColors: [[24, 36, 20]], speckCount: 10
   };
   const COLORS = {
-    monkey: {
-      name: 'MONKEY MILK',
-      top: [172, 201, 227], bottom: [216, 227, 236], tail: [185, 205, 230],
-      fleckColors: [[23, 69, 121], [209, 78, 120], [24, 40, 59]], speckCount: 11
-    },
+    monkey: { name: 'MONKEY MILK', ...MONKEY_MILK_BASE },
     true: {
-      name: 'TRUE MINNOW', ...TRUE_MINNOW_BASE, fleckColors: [], speckCount: 0
+      name: 'TRUE MINNOW', ...TRUE_MINNOW_BASE, opacity: 0.96,
+      fleckColors: [], speckCount: 0
     },
     sunrise: {
       name: 'SUNRISE ORANGE',
       top: [253, 121, 18], bottom: [253, 215, 44], tail: [255, 143, 34],
-      fleckColors: [[54, 39, 26]], speckCount: 5
+      opacity: 1, fleckColors: [[54, 39, 26]], speckCount: 5
     },
     red: {
-      name: 'RED BELLY',
-      top: TRUE_MINNOW_BASE.top,
-      bottom: [240, 48, 42],
-      tail: TRUE_MINNOW_BASE.tail,
-      fleckColors: [], speckCount: 0
+      name: 'RED BELLY', top: TRUE_MINNOW_BASE.top,
+      bottom: [240, 48, 42], tail: TRUE_MINNOW_BASE.tail,
+      opacity: 0.96, fleckColors: [], speckCount: 0
     },
     toad: {
       name: 'TOADFROG',
       top: [31, 47, 43], bottom: [178, 247, 27], tail: [151, 219, 58],
-      fleckColors: [[19, 32, 32]], speckCount: 6
+      opacity: 1, fleckColors: [[19, 32, 32]], speckCount: 6
+    },
+    og: {
+      name: 'OG', top: [47, 244, 81],
+      bottom: MONKEY_MILK_BASE.bottom, tail: [134, 231, 199],
+      opacity: 0.83, sheen: MONKEY_MILK_BASE.sheen,
+      fleckColors: MONKEY_MILK_BASE.fleckColors, speckCount: 12
+    },
+    twilight: {
+      name: 'TWILIGHT',
+      top: [65, 23, 89], bottom: [241, 42, 135], tail: [153, 29, 138],
+      opacity: 0.98, sheen: [94, 113, 228],
+      fleckColors: [[33, 78, 191], [27, 36, 83]], speckCount: 8
+    },
+    lemon: { name: 'LEMON PEPPER', ...LEMON_PEPPER_BASE },
+    stingray: {
+      // Custom color matched visually to chubby_stingray.jpg.
+      name: 'STINGRAY',
+      top: [23, 38, 57], bottom: [45, 137, 209], tail: [147, 185, 215],
+      opacity: 0.96, sheen: [89, 190, 243],
+      fleckColors: [[20, 54, 92], [48, 124, 226]], speckCount: 6
+    },
+    tux: {
+      name: 'TUXEDO',
+      top: [21, 27, 32], bottom: [226, 233, 233], tail: [192, 209, 215],
+      opacity: 0.97, sheen: [209, 225, 232],
+      fleckColors: [[183, 200, 207]], speckCount: 5
+    },
+    whitetreuse: {
+      name: 'WHITETREUSE',
+      top: [245, 254, 249], bottom: [184, 246, 29], tail: [212, 253, 152],
+      opacity: 0.96, fleckColors: [], speckCount: 0
+    },
+    electric: {
+      name: 'ELECTRIC BLUE',
+      top: [13, 102, 247], bottom: LEMON_PEPPER_BASE.bottom,
+      tail: [30, 190, 181], opacity: 1,
+      fleckColors: LEMON_PEPPER_BASE.fleckColors, speckCount: 8
     }
   };
   const state = {
@@ -342,7 +388,9 @@
     if(state.phase==='fall' || (state.phase==='inspect' && deep>0)) angle = .8;
     if(state.phase==='reel') angle = -.22;
     ctx.rotate(angle);
-    ctx.globalAlpha = alpha;
+    // Broad-strokes translucency: let the water show through pale plastics.
+    // This is a visual illustration, not measured underwater transmission.
+    ctx.globalAlpha = alpha * (hue.opacity ?? 1);
     // Tail: pure fill with NO border or glow. Its edge must not imply a
     // highlighted/fluorescent outline that the real bait doesn't have.
     ctx.shadowBlur = 0;
@@ -373,7 +421,10 @@
         ctx.fill();
       }
     }
-    ctx.strokeStyle='#ffffff33';ctx.lineWidth=1;
+    // A faint inside-the-body pearlescent streak, never an exterior outline.
+    ctx.strokeStyle = hue.sheen ? rgb(seenColor(hue.sheen, deep)) : '#ffffff33';
+    ctx.globalAlpha = alpha * (hue.sheen ? 0.32 : 0.16);
+    ctx.lineWidth = 1;
     for(let x=-12;x<27;x+=10){ctx.beginPath();ctx.moveTo(x,-4);ctx.lineTo(x+8,6);ctx.stroke();}
     ctx.restore();
 
