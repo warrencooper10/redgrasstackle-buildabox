@@ -77,16 +77,24 @@
   const color = () => COLORS[state.color];
   const ftToM = ft => ft * 0.3048;
 
-  function fishPalette(c) {
-    // Stylized GREEN/RED-influenced palette only. NOT validated crappie color perception.
+  function fishPalette(c, subject = 'bait') {
+    // This is NOT measured crappie perception. Fish studies of related sunfish
+    // suggest red/green-sensitive channels, not "all underwater water looks green".
+    // Water keeps its clarity-dependent hue. The stylized bait receives a more
+    // noticeable change in relative color contrast for educational comparison.
+    const luminance = c[0] * 0.25 + c[1] * 0.61 + c[2] * 0.14;
+    if (subject === 'water') {
+      return mix(c, [luminance * 0.97, luminance, luminance * 1.03], 0.16);
+    }
+    const redGreenContrast = c[0] - c[1];
     return [
-      clamp(c[0] * 0.64 + c[1] * 0.22 + c[2] * 0.08, 0, 255),
-      clamp(c[0] * 0.24 + c[1] * 0.72 + c[2] * 0.14, 0, 255),
-      clamp(c[0] * 0.06 + c[1] * 0.16 + c[2] * 0.12, 0, 255)
+      clamp(luminance + redGreenContrast * 0.34, 0, 255),
+      clamp(luminance - redGreenContrast * 0.22, 0, 255),
+      clamp(luminance * 0.75 + c[2] * 0.13, 0, 255)
     ];
   }
-  function inView(c) {
-    return state.view === 'fish' ? fishPalette(c) : c;
+  function inView(c, subject = 'bait') {
+    return state.view === 'fish' ? fishPalette(c, subject) : c;
   }
 
   function attenuation(depthFt) {
@@ -174,11 +182,11 @@
   }
 
   function drawWater() {
-    const top = inView(waterBackground(0));
-    const deep = inView(waterBackground(30));
+    const top = inView(waterBackground(0), 'water');
+    const deep = inView(waterBackground(30), 'water');
     const gradient = ctx.createLinearGradient(0, SURFACE, 0, BOTTOM + 120);
     gradient.addColorStop(0, rgb(top));
-    gradient.addColorStop(0.47, rgb(inView(mix(waterBackground(6), waterBackground(25), .38))));
+    gradient.addColorStop(0.47, rgb(inView(mix(waterBackground(6), waterBackground(25), .38), 'water')));
     gradient.addColorStop(1, rgb(deep.map(v=>v*.52)));
     ctx.fillStyle = gradient;
     ctx.fillRect(160, SURFACE, 3000, 1300);
@@ -207,6 +215,21 @@
     }
     ctx.fillStyle = state.view === 'fish' ? '#bdaa6488' : '#a5d8e088';
     ctx.fillRect(160,SURFACE-1,3000,2);
+
+    // A short 2D ripple holds the SPLASH! marker long enough to read.
+    if (state.phase === 'splash') {
+      const p = clamp(state.time / (reducedMotion ? 0.18 : 1.1));
+      ctx.save();
+      ctx.strokeStyle = 'rgba(225,239,226,' + (0.84 * (1-p)).toFixed(3) + ')';
+      ctx.lineWidth = 2;
+      for(let ring=0;ring<3;ring++) {
+        const spread = 13 + p*45 + ring*13;
+        ctx.beginPath();
+        ctx.ellipse(state.x, SURFACE, spread, 5 + p*10 + ring*2, 0, Math.PI, 2*Math.PI);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
 
     // Fixed deterministic particles, a visual cue—not a turbidity measurement.
     for (let i=0;i<water().particle;i++) {
@@ -286,7 +309,7 @@
     ctx.save();
     ctx.translate(state.x,state.y);
     let angle = 0;
-    if(state.phase==='cast') angle = 0.18;
+    if(state.phase==='cast' || state.phase==='splash') angle = 0.18;
     if(state.phase==='fall' || (state.phase==='inspect' && deep>0)) angle = .8;
     if(state.phase==='reel') angle = -.22;
     ctx.rotate(angle);
@@ -360,7 +383,7 @@
 
   function phaseLabel() {
     return {
-      idle:'READY TO CAST',cast:'CASTING',fall:'FOLLOWING THE BAIT DOWN',
+      idle:'READY TO CAST',cast:'CASTING',splash:'SPLASH! BAIT ENTERS WATER',fall:'FOLLOWING THE BAIT DOWN',
       hold:'AT DEPTH — INSPECT OR REEL',
       inspect:'DEPTH INSPECTION',reel:'REELING THROUGH THE WATER COLUMN',
       done:'BACK ON SHORE — CAST AGAIN'
@@ -379,13 +402,72 @@
     el('depthReadout').textContent=state.depth.toFixed(1);
     el('depthSlider').value=state.depth.toFixed(1);
     el('scrubOutput').textContent=Math.round(state.depth*10)/10+' FT';
+    updateMilestone();
+  }
+
+  function milestoneCopy(level) {
+    const scenario = state.water;
+    const byClarity = {
+      1: {
+        clear: 'In this clear-water example, the bait is still easy to recognize near the surface.',
+        stained: 'Even at one foot, colored water can begin to change the look of a bait.',
+        muddy: 'Muddy water can reduce contrast even in the shallowest part of the column.'
+      },
+      5: {
+        clear: 'Some wavelengths are fading already. Reds often weaken sooner than blue-green light.',
+        stained: 'Dissolved color can absorb different wavelengths; notice how the palette shifts.',
+        muddy: 'Suspended particles scatter light, making the bait less distinct from its background.'
+      },
+      10: {
+        clear: 'The original bait color can shift, but ten feet does not make it invisible.',
+        stained: 'With more stained water above it, both brightness and color can change.',
+        muddy: 'Contrast is reduced in this example. Real visibility depends on the actual water.'
+      },
+      20: {
+        clear: 'Brightness and contrast are both changing; look at bait versus background.',
+        stained: 'Water color and distance have increasingly changed this illustrative scene.',
+        muddy: 'The model shows very poor contrast, not a measured limit for every muddy lake.'
+      },
+      30: {
+        clear: 'Thirty feet is not automatically black. Clear water can still transmit light.',
+        stained: 'At this depth, the illustrative stain filters light strongly; other lakes will differ.',
+        muddy: 'Very little contrast remains in this example. This is not a universal cutoff depth.'
+      }
+    };
+    return byClarity[level][scenario];
+  }
+
+  function updateMilestone() {
+    const tag = el('depthTag');
+    if (state.phase === 'idle' || state.phase === 'cast' || state.phase === 'done') {
+      tag.hidden = true;
+      return;
+    }
+    const entering = state.phase === 'splash' || (state.phase === 'fall' && state.depth < 1);
+    const level = entering ? 0 : state.depth >= 30 ? 30 :
+      state.depth >= 20 ? 20 : state.depth >= 10 ? 10 :
+      state.depth >= 5 ? 5 : 1;
+    const direction = state.phase === 'reel' ? 'ASCENT' :
+      state.phase === 'inspect' ? 'INSPECT' : entering ? 'ENTRY' : 'DESCENT';
+    const key = [direction,level,state.water,state.weather,state.view].join('|');
+    if(tag.dataset.key === key && !tag.hidden)return;
+    tag.dataset.key = key;
+    tag.hidden = false;
+    el('tagStage').textContent = direction;
+    el('tagDepth').textContent = entering ? 'SPLASH!' : level + ' FT';
+    const titles = {1:'NEAR THE SURFACE',5:'COLORS BEGIN TO SHIFT',10:'WATCH THE WAVELENGTHS',20:'CONTRAST MATTERS',30:'THIRTY FEET — NOT A UNIVERSAL RULE'};
+    el('tagTitle').textContent = entering ? 'BAIT ENTERS THE WATER' : titles[level];
+    el('tagBody').textContent = entering
+      ? 'Light now passes through water before illuminating the bait.'
+      : milestoneCopy(level);
+    el('tagSource').href = level === 1 || entering ? source.water : source.light;
   }
 
   function updateFact() {
     let index=1, title='',body='',url=source.water;
     if(state.view==='fish') {
       index=4;title='Fish view is an informed illustration—not a literal picture of crappie vision.';
-      body='Research in related sunfish identifies important green- and red-sensitive visual channels. We use that as inspiration for a different color/contrast palette. Species differences, low light and perception remain uncertain.';
+      body='Related sunfish research suggests red- and green-sensitive color channels, but it does not mean clear water looks uniformly green. This version keeps water clarity recognizable while adjusting the bait palette. Actual crappie perception remains unknown.';
       url=source.centrarchid;
     } else if(state.water==='muddy') {
       index=3;title='Low contrast can matter more than the original paint color.';
@@ -474,7 +556,7 @@
     state.view=button.dataset.view;
     setActive('viewGroup','view',state.view);
     el('viewExplain').textContent=state.view==='fish'
-      ? 'A possible, simplified green/red-influenced palette inspired by research on related sunfish.'
+      ? 'A simplified bait-color palette inspired by related sunfish research, with water clarity preserved.'
       : 'A human-readable approximation of the bait and water under the chosen conditions.';
     el('fishCaveat').hidden=state.view!=='fish';
     updateControls();updateFact();render();
@@ -496,15 +578,18 @@
     if(!state.paused) {
       state.sceneTime+=dt;
       const durations = reducedMotion
-        ? {cast:0.18,fall:0.20,reel:0.25}
-        : {cast:1.22,fall:4.2,reel:3.8};
+        ? {cast:0.18,splash:0.18,fall:0.20,reel:0.25}
+        : {cast:1.22,splash:1.1,fall:16.8,reel:15.2};
       if(state.phase==='cast'){
         state.time+=dt;
         const p=clamp(state.time/durations.cast);
         state.x=lerp(223,681,p);
         state.y=lerp(117,SURFACE,p)-120*Math.sin(Math.PI*p);
         state.depth=0;
-        if(p===1){state.phase='fall';state.time=0;state.x=681;state.y=SURFACE;}
+        if(p===1){state.phase='splash';state.time=0;state.x=681;state.y=SURFACE;}
+      } else if(state.phase==='splash'){
+        state.time+=dt;
+        if(state.time>=durations.splash){state.phase='fall';state.time=0;}
       } else if(state.phase==='fall'){
         state.time+=dt;
         const p=clamp(state.time/durations.fall);
