@@ -1,4 +1,4 @@
-@import url("quiet-graphite-frames.css?v=02d-color");
+@import url("quiet-graphite-frames.css?v=02d-chubby");
 
 @font-face {
   font-family: "Barlow Condensed";
@@ -92,7 +92,7 @@ body::before {
   margin-bottom: 10px;
   padding: 6px;
   border: 1px solid #625e56;
-  border-top-color: var(--steel-trim);
+  border-top-color: var(--steel-edge);
   border-radius: 13px;
   background: #34312e;
   box-shadow: 0 4px 13px #18151163, inset 0 1px #ffffff0c;
@@ -171,7 +171,7 @@ button:focus-visible, input:focus-visible {
   border: 1px solid #625b51;
   border-radius: 11px;
   background: linear-gradient(160deg, var(--elevated), var(--panel));
-  box-shadow: inset 0 1px var(--steel-highlight), inset 0 2px 6px var(--steel-trim), 0 3px 7px #1a171448;
+  box-shadow: inset 0 1px var(--steel-highlight), inset 2px 0 var(--steel-edge), inset 0 2px 6px var(--steel-trim), 0 3px 7px #1a171448;
 }
 
 .rg-suggested h2 { margin: 0; font: 700 1.23rem/1.1 var(--display); }

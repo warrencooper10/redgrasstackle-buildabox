@@ -41,7 +41,7 @@
 
   const slots = new Array(MAX_SLOTS).fill(null);
   let data = [];
-  let filter = 'all';
+  let filter = FILTERS.find(button => button.getAttribute('aria-pressed') === 'true')?.dataset.filter ?? 'all';
   let recipe = null;
   let browseView = null;
   let pointerBrowseFocus = null;

@@ -15,7 +15,8 @@
   --steel: #536f83;
   --steel-highlight: #7993a5;
   --steel-trim: rgba(121, 147, 165, .30);
-  --action-rest: #7f3437;
+  --steel-edge: rgba(121, 147, 165, .58);
+  --action-rest: #873838;
   --action-edge: #a76563;
   --action-shadow: inset 0 1px #f8d8d232, 0 2px 5px #211e1b80;
   --display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
@@ -147,7 +148,7 @@
 }
 
 .rg-box::after {
-  background: linear-gradient(145deg, var(--steel-highlight), var(--steel) 24%, #6e685f 54%, #22211f);
+  background: linear-gradient(145deg, var(--steel-highlight), var(--steel) 38%, #6e685f 64%, #22211f);
 }
 
 .status {
@@ -158,7 +159,7 @@
   gap: 7px;
   margin-bottom: 10px;
   padding-bottom: 9px;
-  border-bottom: 1px solid var(--steel-trim);
+  border-bottom: 1px solid var(--steel-edge);
 }
 
 #slotCounter {
@@ -272,16 +273,21 @@
 }
 
 .filter-btn.is-active {
-  --action-fill: var(--red-action);
+  --action-fill: color-mix(in srgb, var(--red-action) 78%, var(--red-highlight));
   --action-edge: var(--red-highlight);
   --action-shadow: inset 0 0 0 1px #ffd4ce78, inset 0 1px #f8d8d24d, 0 2px 5px #211e1b80;
+}
+
+#useSuggested,
+#confirmSuggested {
+  --action-fill: var(--red-action);
 }
 
 #addToCart:enabled {
   --action-fill: var(--red-dark);
   --action-edge: var(--red-highlight);
   --action-shadow: inset 0 1px #ffd9d04a, 0 3px 7px #211e1b99;
-  background-image: linear-gradient(180deg, var(--red-action), var(--red-dark));
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--red-action) 72%, var(--red-highlight)), var(--red-dark));
 }
 
 @media (hover: hover) {
@@ -296,6 +302,10 @@
 
   .filter-btn.is-active:hover, #addToCart:enabled:hover {
     border-color: var(--red-highlight);
+  }
+
+  #useSuggested:hover, #confirmSuggested:hover {
+    --action-fill: color-mix(in srgb, var(--red-action) 75%, var(--red-hover));
   }
 }
 
