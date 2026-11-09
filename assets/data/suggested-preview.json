@@ -1,0 +1,21 @@
+{
+  "status": "preview-only",
+  "activeRecipeId": "redgrass-02d-preview",
+  "recipes": [
+    {
+      "id": "redgrass-02d-preview",
+      "name": "The Redgrass Suggested Box",
+      "optionIds": [
+        480354642,
+        480354642,
+        480356694,
+        480356724,
+        480358671,
+        480354645,
+        480354648,
+        480354654,
+        480354651
+      ]
+    }
+  ]
+}

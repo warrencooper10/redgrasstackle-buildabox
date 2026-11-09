@@ -1,0 +1,253 @@
+:root {
+  color-scheme: dark;
+  --canvas: #2d2b29;
+  --canvas-deep: #242322;
+  --panel: #383633;
+  --well: #2c2a28;
+  --ink: #f0eae1;
+  --muted: #cec7bd;
+  --edge: #716c64;
+  --rust: #92513d;
+  --display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
+}
+
+.card,
+.rg-box {
+  --cut: 12px;
+  --rim-inset: 7px;
+  --outline: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  border: 0;
+  background: linear-gradient(143deg, #8b8780, #66625b 33%, #3e3b37 74%, #5b5751);
+  clip-path: var(--outline);
+}
+
+.card::before,
+.rg-box::before {
+  position: absolute;
+  z-index: -1;
+  inset: 1px;
+  background:
+    linear-gradient(137deg, #635f57, #46433e 20%, #34322f 72%, #282724);
+  box-shadow: inset 4px 4px 6px #c7ba9c21, inset -5px -4px 7px #1513128a;
+  clip-path: var(--outline);
+  pointer-events: none;
+  content: "";
+}
+
+/* The independent inner rim follows the diagonal corner cuts. */
+.card::after,
+.rg-box::after {
+  position: absolute;
+  z-index: -1;
+  inset: var(--rim-inset);
+  background: linear-gradient(145deg, #8b857b 0%, #68635b 45%, #22211f 100%);
+  clip-path: polygon(evenodd,
+    6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px),
+    calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px, 6px 0,
+    6.5px 1px, 1px 6.5px, 1px calc(100% - 6.5px), 6.5px calc(100% - 1px),
+    calc(100% - 6.5px) calc(100% - 1px), calc(100% - 1px) calc(100% - 6.5px),
+    calc(100% - 1px) 6.5px, calc(100% - 6.5px) 1px, 6.5px 1px);
+  pointer-events: none;
+  content: "";
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  padding: 11px;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 0;
+  background: #e6d4bf;
+}
+
+.card:focus-visible::after {
+  background: #eee0cc;
+}
+
+@media (hover: hover) {
+  .card:hover { background: #a29b90; }
+}
+
+.rg-photo {
+  display: block;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  padding: 2px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #2e2c29;
+  box-shadow: inset 0 1px 3px #151411b0, 0 1px #847d702e;
+}
+
+.rg-photo img,
+.slot-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.meta {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 8px 4px 3px;
+  background: linear-gradient(180deg, #373532, #35333000);
+  overflow-wrap: anywhere;
+}
+
+.meta .name {
+  font: 700 1.13rem/1.1 var(--display);
+  letter-spacing: .005em;
+}
+
+.meta .sub {
+  color: var(--muted);
+  font-size: .8125rem;
+  line-height: 1.2;
+}
+
+.badges { display: flex; flex-wrap: wrap; }
+
+.badge {
+  padding: 1px 6px;
+  border: 1px solid #756e625e;
+  border-radius: 4px;
+  background: #59544d;
+  color: #f4eee5;
+  font-size: .75rem;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.rg-box {
+  --cut: 16px;
+  --rim-inset: 8px;
+  padding: 17px;
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  margin-bottom: 10px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #7b756a73;
+}
+
+#slotCounter {
+  font: 700 1.42rem/1.08 var(--display);
+  letter-spacing: .005em;
+}
+
+.rg-slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.slot {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-width: 0;
+  min-height: 70px;
+  padding: 5px;
+  border: 1px solid #746e634d;
+  border-radius: 9px;
+  background: linear-gradient(165deg, #2c2a28, #363330);
+  box-shadow: inset 0 2px 5px #18161391, 0 1px #ffffff0c;
+  color: var(--muted);
+  font-size: .8125rem;
+  text-align: center;
+}
+
+.slot.filled {
+  align-content: start;
+  gap: 4px;
+  background: linear-gradient(165deg, #3a3733, #45413c);
+}
+
+.slot-photo {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #2f2c29;
+}
+
+.slot-text {
+  display: grid;
+  gap: 2px;
+  padding: 1px 0 2px;
+  overflow-wrap: anywhere;
+  font-size: .8125rem;
+  line-height: 1.13;
+}
+
+.slot-text > :first-child {
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #f0e8dc;
+  border-radius: 50%;
+  background: #e4dcd0;
+  color: #24211e;
+  font: 800 .9rem/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.rg-actions { display: grid; gap: 7px; margin-top: 10px; }
+
+.secondary,
+#addToCart {
+  min-height: 38px;
+  padding: 5px 11px;
+  border: 1px solid #746e64;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #514e48, #373431);
+  color: var(--ink);
+  box-shadow: inset 0 1px #ffffff15, 0 2px 5px #211e1b80;
+  font: 650 .875rem/1.25 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+#addToCart {
+  min-height: 43px;
+  border-color: #ac715d;
+  background: linear-gradient(180deg, #a35e49, #864632);
+  color: #fff6ed;
+  font-weight: 800;
+}
+
+.secondary:disabled,
+#addToCart:disabled {
+  border-color: #625e57;
+  background: #3b3834;
+  color: #b7aea3;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.hint { color: var(--muted); font-size: .75rem; text-align: center; }
