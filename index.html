@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2d2b29">
   <title>Redgrass Tackle — Build‑a‑Box</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=quiet-graphite">
 </head>
 <body>
   <header class="rg-header">
-    <h1>Build‑a‑Box (9 Slots)</h1>
+    <p class="rg-wordmark">Redgrass Tackle</p>
+    <h1>Build‑a‑Box <span>(9 Slots)</span></h1>
     <p>Pick any 9 half‑packs. Click a bait to fill the next slot. Duplicates allowed.</p>
   </header>
 
@@ -21,25 +23,30 @@
       <button class="filter-btn" data-filter="2&quot; Ribbed Paddletail">Paddletail</button>
       <button class="filter-btn" data-filter="2&quot; Flicker Minnow">Flicker</button>
     </div>
-    <div class="status">
-      <span id="slotCounter">Slots Filled: 0 / 9</span>
-      <button id="clearAll" class="secondary">Clear All</button>
-    </div>
   </section>
 
-  <section class="rg-slots" id="slots">
-    <!-- 9 slots rendered by JS -->
-  </section>
+  <main class="rg-workspace">
+    <section class="rg-box" aria-label="Your box">
+      <div class="status">
+        <span id="slotCounter">Slots Filled: 0 / 9</span>
+        <button id="clearAll" class="secondary">Clear All</button>
+      </div>
 
-  <section class="rg-actions">
-    <button id="copyNote" class="secondary" disabled>Copy Selections</button>
-    <button id="addToCart" disabled>Add Box to Cart — $25</button>
-    <small class="hint">Checkout is handled securely on our Big Cartel store.</small>
-  </section>
+      <div class="rg-slots" id="slots">
+        <!-- 9 slots rendered by JS -->
+      </div>
 
-  <section class="rg-gallery" id="gallery">
-    <!-- Bait cards rendered by JS -->
-  </section>
+      <div class="rg-actions">
+        <button id="copyNote" class="secondary" disabled>Copy Selections</button>
+        <button id="addToCart" disabled>Add Box to Cart — $25</button>
+        <small class="hint">Checkout is handled securely on our Big Cartel store.</small>
+      </div>
+    </section>
+
+    <section class="rg-gallery" id="gallery" aria-label="Bait catalog">
+      <!-- Bait cards rendered by JS -->
+    </section>
+  </main>
 
   <footer class="rg-footer">
     <p>Redgrass Tackle — Hand‑poured in Mississippi. Fan Favorites & Seasonal Colors.</p>
