@@ -1,47 +1,34 @@
 :root {
   color-scheme: dark;
-  --canvas: #302f2e;
-  --panel: #41403f;
-  --elevated: #514e4b;
-  --ink: #f2ece3;
-  --muted: #d0c9c1;
-  --red-dark: #742f32;
-  --red-action: #a44949;
-  --red-hover: #c65a58;
-  --red-highlight: #d76b66;
-  --red-glow: rgba(198, 90, 88, .32);
-  --steel-dark: #344a5a;
-  --steel: #536f83;
-  --steel-highlight: #7993a5;
-  --steel-trim: rgba(121, 147, 165, .30);
-  --steel-edge: rgba(121, 147, 165, .58);
-  --header-navy: #20323e;
-  --header-steel: #304956;
-  --nameplate-top: #344e5c;
-  --nameplate-bottom: #263a45;
-  --box-top: #354e5d;
-  --box-bottom: #283b47;
-  --slot-well: #20323d;
-  --suggested-top: #542e38;
-  --suggested-bottom: #382b31;
-  --cart-red: #b34d50;
-  --cart-red-dark: #802f36;
-  --action-rest: #873838;
-  --action-edge: #a76563;
-  --action-shadow: inset 0 1px #f8d8d232, 0 2px 5px #211e1b80;
+  --canvas: #111216;
+  --glass: #202126;
+  --well: #15161a;
+  --ink: #f6f3ed;
+  --muted: #c4c5cd;
+  --silver: #757780;
+  --silver-seam: #b2b3bf53;
+  --sapphire: #385fb7;
+  --sapphire-deep: #233b7c;
+  --sapphire-light: #9bb4fc;
+  --button-glass: linear-gradient(180deg, #3d3f48, #282a31 52%, #1e2026);
+  --button-reflection: inset 0 1px #fcf9f845, inset 0 -1px #090b1080, 0 2px 5px #07080ba6;
   --display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
 }
 
 .card,
 .rg-box {
   --cut: 12px;
-  --rim-inset: 7px;
+  --rim-inset: 5px;
   --outline: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
   position: relative;
   isolation: isolate;
   min-width: 0;
   border: 0;
-  background: linear-gradient(143deg, #8b8780, #66625b 33%, #3e3b37 74%, #5b5751);
+  background:
+    radial-gradient(ellipse at 13% 0%, #f0ede4 0%, #d8dde5c9 8%, transparent 34%),
+    radial-gradient(ellipse at 100% 8%, #dfd9edbf 0%, #a2aabc80 9%, transparent 28%),
+    radial-gradient(ellipse at 75% 100%, #c9e5e9ba 0%, transparent 31%),
+    linear-gradient(147deg, #898b96, #535560 31%, #21232c 63%, #797783 95%);
   clip-path: var(--outline);
 }
 
@@ -51,20 +38,27 @@
   z-index: -1;
   inset: 1px;
   background:
-    linear-gradient(137deg, #635f57, var(--elevated) 20%, var(--panel) 56%, #282724);
-  box-shadow: inset 4px 4px 6px #c7ba9c21, inset -5px -4px 7px #1513128a;
+    radial-gradient(ellipse 28% 12% at 14% 0%, #fff5e2e8, #a4ccd49c 24%, #756a8854 58%, transparent),
+    radial-gradient(ellipse 18% 20% at 100% 3%, #f1e5f5e6, #c9a6d297 28%, #58526f4d 65%, transparent),
+    radial-gradient(ellipse 30% 10% at 78% 100%, #f1eee3c9, #83b8c8a6 24%, #837a9e38 70%, transparent),
+    linear-gradient(148deg, #61616c, #2e3038 18%, #191b22 45%, #23252d 74%, #454550);
+  box-shadow: inset 2px 2px 3px #f3f5ff2d, inset -2px -2px 3px #0c0c138a;
   clip-path: var(--outline);
   pointer-events: none;
   content: "";
 }
 
-/* The independent inner rim follows the diagonal corner cuts. */
+/* The inner cut catches the same light after it crosses the outer bevel. */
 .card::after,
 .rg-box::after {
   position: absolute;
   z-index: -1;
   inset: var(--rim-inset);
-  background: linear-gradient(145deg, var(--steel-highlight), #746f66 32%, #68635b 48%, #22211f 100%);
+  background:
+    radial-gradient(ellipse 22% 10% at 13% 0%, #fffff1 5%, #cce9e8 22%, #d4c4e9b5 49%, transparent),
+    radial-gradient(ellipse 23% 21% at 100% 5%, #fffbf0 3%, #edd5ef 20%, #9bc1d9a1 45%, transparent),
+    radial-gradient(ellipse 26% 9% at 77% 100%, #f6f9ed 4%, #c8e8ed 21%, #b9a4d29e 48%, transparent),
+    linear-gradient(151deg, #bebfc6, #5b5f6c 21%, #161a23 46%, #444550 71%, #9b9aa6);
   clip-path: polygon(evenodd,
     6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px),
     calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px, 6px 0,
@@ -88,15 +82,16 @@
 
 .card:focus-visible {
   outline: 0;
-  background: #e6d4bf;
+  background: var(--sapphire-light);
 }
 
 .card:focus-visible::after {
-  background: #eee0cc;
+  background: #eef2ff;
 }
 
 @media (hover: hover) {
-  .card:hover { background: #a29b90; }
+  .card:hover::before { filter: brightness(1.17); }
+  .card:hover::after { filter: brightness(1.23); }
 }
 
 .rg-photo {
@@ -124,8 +119,8 @@
   gap: 4px;
   padding: 8px 4px 3px;
   border-radius: 0 0 5px 5px;
-  background: linear-gradient(180deg, var(--nameplate-top), var(--nameplate-bottom));
-  box-shadow: inset 0 1px #a5bac93d, inset 0 -1px #14232c;
+  background: linear-gradient(180deg, #2b2c33, #1c1e24);
+  box-shadow: inset 0 1px #edeaf12d, inset 0 -1px #0d0e12;
   overflow-wrap: anywhere;
 }
 
@@ -144,34 +139,27 @@
 
 .badge {
   padding: 1px 6px;
-  border: 1px solid #756e625e;
+  border: 1px solid #b8b9c64a;
   border-radius: 4px;
-  background: #59544d;
-  color: #f4eee5;
+  background: #33353e;
+  color: var(--ink);
   font-size: .75rem;
   line-height: 1.2;
   font-style: italic;
 }
 
-.meta .badge {
-  border-color: #7893a56e;
-  background: #293d49;
-}
-
 .rg-box {
   --cut: 16px;
-  --rim-inset: 8px;
+  --rim-inset: 6px;
   padding: 17px;
-  background: linear-gradient(143deg, #728b9a, #475f6d 35%, #1b2b36 78%, #425866);
 }
 
 .rg-box::before {
-  background: linear-gradient(145deg, var(--box-top), var(--box-bottom));
-  box-shadow: inset 4px 4px 6px #9ab7ca26, inset -5px -4px 7px #13242e90;
-}
-
-.rg-box::after {
-  background: linear-gradient(145deg, var(--steel-highlight), var(--steel) 38%, #3d5564 64%, #172934);
+  background:
+    radial-gradient(ellipse 33% 7% at 15% 0%, #e7e4dbd9, #9fc4d18a 34%, transparent),
+    radial-gradient(ellipse 16% 11% at 100% 3%, #f0dff4bb, #9c9fc363 36%, transparent),
+    radial-gradient(ellipse 35% 7% at 79% 100%, #a9d1d88f, transparent),
+    linear-gradient(145deg, #3a3b43, #282a31 24%, #202127 54%, #17191f);
 }
 
 .status {
@@ -182,7 +170,7 @@
   gap: 7px;
   margin-bottom: 10px;
   padding-bottom: 9px;
-  border-bottom: 1px solid var(--steel-edge);
+  border-bottom: 1px solid var(--silver-seam);
 }
 
 #slotCounter {
@@ -199,19 +187,19 @@
   overflow: hidden;
   border: 0;
   border-radius: 999px;
-  background: #172832;
-  accent-color: var(--red-hover);
-  box-shadow: inset 0 1px 2px #101b24;
+  background: #14151b;
+  accent-color: var(--sapphire);
+  box-shadow: inset 0 1px 2px #07080c, inset 0 -1px #74768845;
 }
 
 .rg-box-progress::-webkit-progress-bar { background: transparent; }
 .rg-box-progress::-webkit-progress-value {
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--red-hover), var(--red-highlight));
+  background: linear-gradient(90deg, var(--sapphire), var(--sapphire-light));
 }
 .rg-box-progress::-moz-progress-bar {
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--red-hover), var(--red-highlight));
+  background: linear-gradient(90deg, var(--sapphire), var(--sapphire-light));
 }
 
 .rg-slots {
@@ -227,10 +215,10 @@
   min-width: 0;
   min-height: 70px;
   padding: 5px;
-  border: 1px solid #66859764;
+  border: 1px solid #8e91a14d;
   border-radius: 9px;
-  background: linear-gradient(165deg, var(--slot-well), #1b2c36);
-  box-shadow: inset 0 2px 5px #101e27a0, 0 1px #ffffff0c;
+  background: linear-gradient(165deg, var(--well), #202127);
+  box-shadow: inset 0 2px 5px #090a0eb3, 0 1px #ffffff0e;
   color: var(--muted);
   font-size: .8125rem;
   text-align: center;
@@ -239,8 +227,8 @@
 .slot.filled {
   align-content: start;
   gap: 4px;
-  background: linear-gradient(165deg, var(--slot-well), #273c48);
-  border-top-color: var(--steel-trim);
+  background: linear-gradient(165deg, var(--well), #282a32);
+  border-top-color: var(--silver-seam);
 }
 
 .slot-photo {
@@ -279,10 +267,10 @@
   width: 28px;
   height: 28px;
   padding: 0;
-  border: 1px solid #f0e8dc;
+  border: 1px solid #fffcf4;
   border-radius: 50%;
-  background: #e4dcd0;
-  color: #24211e;
+  background: linear-gradient(150deg, #fffbf2, #d1d3db);
+  color: #191a20;
   font: 800 .9rem/1 system-ui, sans-serif;
   cursor: pointer;
 }
@@ -290,14 +278,15 @@
 .rg-actions { display: grid; gap: 7px; margin-top: 10px; }
 
 .secondary,
-#addToCart {
+#addToCart,
+.filter-btn {
   min-height: 38px;
   padding: 5px 11px;
-  border: 1px solid #746e64;
+  border: 1px solid var(--silver);
   border-radius: 10px;
-  background: linear-gradient(180deg, #514e48, #373431);
+  background: var(--button-glass);
   color: var(--ink);
-  box-shadow: inset 0 1px #ffffff15, 0 2px 5px #211e1b80;
+  box-shadow: var(--button-reflection);
   font: 650 .875rem/1.25 system-ui, sans-serif;
   cursor: pointer;
 }
@@ -308,59 +297,39 @@
 }
 
 .filter-btn,
-#useSuggested,
-#confirmSuggested,
-#addToCart:enabled {
-  border-color: var(--action-edge);
-  background-color: var(--action-fill, var(--action-rest));
-  background-image: linear-gradient(180deg, #ffffff0c, #0000002e);
-  color: var(--ink);
-  box-shadow: var(--action-shadow);
-  transition: background-color 175ms ease, border-color 175ms ease, box-shadow 175ms ease;
-}
-
-.filter-btn.is-active {
-  --action-fill: color-mix(in srgb, var(--red-action) 78%, var(--red-highlight));
-  --action-edge: var(--red-highlight);
-  --action-shadow: inset 0 0 0 1px #ffd4ce78, inset 0 1px #f8d8d24d, 0 2px 5px #211e1b80;
+.secondary,
+#addToCart {
+  transition: border-color 160ms ease, box-shadow 160ms ease, filter 160ms ease;
 }
 
 #useSuggested,
 #confirmSuggested {
-  --action-fill: var(--cart-red);
+  border-color: #e5e3e5;
+  background: linear-gradient(180deg, #f7f4ec, #dbdbe1 53%, #bec1cb);
+  color: #1b1d25;
+  box-shadow: inset 0 1px #fffdf7, inset 0 -1px #858b9b55, 0 3px 7px #0a0c1266;
 }
 
+.filter-btn.is-active,
 #addToCart:enabled {
-  --action-fill: var(--red-dark);
-  --action-edge: var(--red-highlight);
-  --action-shadow: inset 0 1px #ffd9d04a, 0 3px 7px #211e1b99;
-  background-image: linear-gradient(180deg, var(--cart-red), var(--cart-red-dark));
+  border-color: #7e9be2;
+  background:
+    radial-gradient(ellipse at 30% 0%, #b9cdff55, transparent 67%),
+    linear-gradient(180deg, var(--sapphire), var(--sapphire-deep));
+  box-shadow: inset 0 1px #e3ebff9c, inset 0 -1px #0b184a8c, 0 3px 9px #09123582;
 }
 
 @media (hover: hover) {
   .filter-btn:hover,
-  #useSuggested:hover,
-  #confirmSuggested:hover,
-  #addToCart:enabled:hover {
-    --action-rest: var(--red-action);
-    border-color: var(--red-hover);
-    box-shadow: var(--action-shadow), 0 0 9px var(--red-glow);
-  }
-
-  .filter-btn.is-active:hover, #addToCart:enabled:hover {
-    border-color: var(--red-highlight);
-  }
-
-  #useSuggested:hover, #confirmSuggested:hover {
-    --action-fill: color-mix(in srgb, var(--cart-red) 75%, var(--red-hover));
-  }
+  .secondary:enabled:hover,
+  #addToCart:enabled:hover { filter: brightness(1.13); }
 }
 
 .secondary:disabled,
 #addToCart:disabled {
-  border-color: #625e57;
-  background: #3b3834;
-  color: #b7aea3;
+  border-color: #585b65;
+  background: #25262d;
+  color: #b1b2be;
   box-shadow: none;
   cursor: not-allowed;
 }
