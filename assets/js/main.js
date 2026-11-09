@@ -88,6 +88,10 @@
     BTN_CART.disabled = filled !== MAX_SLOTS;
   }
 
+  function compactProfile(profile) {
+    return profile.replace(/ Minnow$/, '').replace('Ribbed Paddletail', 'Paddletail');
+  }
+
   function renderSlots() {
     const fragment = document.createDocumentFragment();
     slots.forEach((item, i) => {
@@ -104,8 +108,12 @@
         profile.textContent = `${item.halfCount}× ${item.profile}`;
         const color = document.createElement('div');
         color.textContent = item.color;
+        const compact = document.createElement('div');
+        compact.className = 'slot-profile';
+        compact.setAttribute('aria-hidden', 'true');
+        compact.textContent = `${compactProfile(item.profile)} · ${item.halfCount} baits`;
         labels.title = `${item.color} · ${profile.textContent}`;
-        labels.append(color, profile);
+        labels.append(color, compact, profile);
 
         const remove = document.createElement('button');
         remove.type = 'button';
