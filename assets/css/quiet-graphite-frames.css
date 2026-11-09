@@ -2,7 +2,6 @@
   color-scheme: dark;
   --canvas: #302f2e;
   --panel: #41403f;
-  --well: #343331;
   --elevated: #514e4b;
   --ink: #f2ece3;
   --muted: #d0c9c1;
@@ -16,6 +15,17 @@
   --steel-highlight: #7993a5;
   --steel-trim: rgba(121, 147, 165, .30);
   --steel-edge: rgba(121, 147, 165, .58);
+  --header-navy: #20323e;
+  --header-steel: #304956;
+  --nameplate-top: #344e5c;
+  --nameplate-bottom: #263a45;
+  --box-top: #354e5d;
+  --box-bottom: #283b47;
+  --slot-well: #20323d;
+  --suggested-top: #542e38;
+  --suggested-bottom: #382b31;
+  --cart-red: #b34d50;
+  --cart-red-dark: #802f36;
   --action-rest: #873838;
   --action-edge: #a76563;
   --action-shadow: inset 0 1px #f8d8d232, 0 2px 5px #211e1b80;
@@ -113,7 +123,9 @@
   align-content: start;
   gap: 4px;
   padding: 8px 4px 3px;
-  background: linear-gradient(180deg, #373532, #35333000);
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(180deg, var(--nameplate-top), var(--nameplate-bottom));
+  box-shadow: inset 0 1px #a5bac93d, inset 0 -1px #14232c;
   overflow-wrap: anywhere;
 }
 
@@ -141,14 +153,25 @@
   font-style: italic;
 }
 
+.meta .badge {
+  border-color: #7893a56e;
+  background: #293d49;
+}
+
 .rg-box {
   --cut: 16px;
   --rim-inset: 8px;
   padding: 17px;
+  background: linear-gradient(143deg, #728b9a, #475f6d 35%, #1b2b36 78%, #425866);
+}
+
+.rg-box::before {
+  background: linear-gradient(145deg, var(--box-top), var(--box-bottom));
+  box-shadow: inset 4px 4px 6px #9ab7ca26, inset -5px -4px 7px #13242e90;
 }
 
 .rg-box::after {
-  background: linear-gradient(145deg, var(--steel-highlight), var(--steel) 38%, #6e685f 64%, #22211f);
+  background: linear-gradient(145deg, var(--steel-highlight), var(--steel) 38%, #3d5564 64%, #172934);
 }
 
 .status {
@@ -167,6 +190,30 @@
   letter-spacing: .005em;
 }
 
+.rg-box-progress {
+  display: block;
+  width: min(9rem, 40vw);
+  height: 7px;
+  margin-top: 5px;
+  appearance: none;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: #172832;
+  accent-color: var(--red-hover);
+  box-shadow: inset 0 1px 2px #101b24;
+}
+
+.rg-box-progress::-webkit-progress-bar { background: transparent; }
+.rg-box-progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--red-hover), var(--red-highlight));
+}
+.rg-box-progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--red-hover), var(--red-highlight));
+}
+
 .rg-slots {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -180,10 +227,10 @@
   min-width: 0;
   min-height: 70px;
   padding: 5px;
-  border: 1px solid #746e634d;
+  border: 1px solid #66859764;
   border-radius: 9px;
-  background: linear-gradient(165deg, var(--well), #363330);
-  box-shadow: inset 0 2px 5px #18161391, 0 1px #ffffff0c;
+  background: linear-gradient(165deg, var(--slot-well), #1b2c36);
+  box-shadow: inset 0 2px 5px #101e27a0, 0 1px #ffffff0c;
   color: var(--muted);
   font-size: .8125rem;
   text-align: center;
@@ -192,7 +239,7 @@
 .slot.filled {
   align-content: start;
   gap: 4px;
-  background: linear-gradient(165deg, #3a3733, #45413c);
+  background: linear-gradient(165deg, var(--slot-well), #273c48);
   border-top-color: var(--steel-trim);
 }
 
@@ -280,14 +327,14 @@
 
 #useSuggested,
 #confirmSuggested {
-  --action-fill: var(--red-action);
+  --action-fill: var(--cart-red);
 }
 
 #addToCart:enabled {
   --action-fill: var(--red-dark);
   --action-edge: var(--red-highlight);
   --action-shadow: inset 0 1px #ffd9d04a, 0 3px 7px #211e1b99;
-  background-image: linear-gradient(180deg, color-mix(in srgb, var(--red-action) 72%, var(--red-highlight)), var(--red-dark));
+  background-image: linear-gradient(180deg, var(--cart-red), var(--cart-red-dark));
 }
 
 @media (hover: hover) {
@@ -305,7 +352,7 @@
   }
 
   #useSuggested:hover, #confirmSuggested:hover {
-    --action-fill: color-mix(in srgb, var(--red-action) 75%, var(--red-hover));
+    --action-fill: color-mix(in srgb, var(--cart-red) 75%, var(--red-hover));
   }
 }
 

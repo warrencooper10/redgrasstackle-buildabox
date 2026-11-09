@@ -15,6 +15,7 @@
   const GALLERY = document.getElementById('gallery');
   const SLOTS = document.getElementById('slots');
   const COUNTER = document.getElementById('slotCounter');
+  const BOX_PROGRESS = document.getElementById('boxProgress');
   const CLEAR = document.getElementById('clearAll');
   const BTN_COPY = document.getElementById('copyNote');
   const BTN_CART = document.getElementById('addToCart');
@@ -83,6 +84,7 @@
   function updateCounter() {
     const filled = slots.filter(Boolean).length;
     COUNTER.textContent = `Slots Filled: ${filled} / ${MAX_SLOTS}`;
+    BOX_PROGRESS.value = filled;
     PROGRESS.textContent = `${filled} / ${MAX_SLOTS} selected · $25`;
     BTN_COPY.disabled = filled !== MAX_SLOTS;
     BTN_CART.disabled = filled !== MAX_SLOTS;
