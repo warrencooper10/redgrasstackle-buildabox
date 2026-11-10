@@ -1,0 +1,337 @@
+:root {
+  color-scheme: dark;
+  --canvas: #111216;
+  --glass: #202126;
+  --well: #15161a;
+  --ink: #f6f3ed;
+  --muted: #c4c5cd;
+  --silver: #757780;
+  --silver-seam: #b2b3bf53;
+  --sapphire: #385fb7;
+  --sapphire-deep: #233b7c;
+  --sapphire-light: #9bb4fc;
+  --button-glass: linear-gradient(180deg, #3d3f48, #282a31 52%, #1e2026);
+  --button-reflection: inset 0 1px #fcf9f845, inset 0 -1px #090b1080, 0 2px 5px #07080ba6;
+  --display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
+}
+
+.card,
+.rg-box {
+  --cut: 12px;
+  --rim-inset: 5px;
+  --outline: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  border: 0;
+  background:
+    radial-gradient(ellipse at 13% 0%, #f0ede4 0%, #d8dde5c9 8%, transparent 34%),
+    radial-gradient(ellipse at 100% 8%, #dfd9edbf 0%, #a2aabc80 9%, transparent 28%),
+    radial-gradient(ellipse at 75% 100%, #c9e5e9ba 0%, transparent 31%),
+    linear-gradient(147deg, #898b96, #535560 31%, #21232c 63%, #797783 95%);
+  clip-path: var(--outline);
+}
+
+.card::before,
+.rg-box::before {
+  position: absolute;
+  z-index: -1;
+  inset: 1px;
+  background:
+    radial-gradient(ellipse 28% 12% at 14% 0%, #fff5e2e8, #a4ccd49c 24%, #756a8854 58%, transparent),
+    radial-gradient(ellipse 18% 20% at 100% 3%, #f1e5f5e6, #c9a6d297 28%, #58526f4d 65%, transparent),
+    radial-gradient(ellipse 30% 10% at 78% 100%, #f1eee3c9, #83b8c8a6 24%, #837a9e38 70%, transparent),
+    linear-gradient(148deg, #61616c, #2e3038 18%, #191b22 45%, #23252d 74%, #454550);
+  box-shadow: inset 2px 2px 3px #f3f5ff2d, inset -2px -2px 3px #0c0c138a;
+  clip-path: var(--outline);
+  pointer-events: none;
+  content: "";
+}
+
+/* The inner cut catches the same light after it crosses the outer bevel. */
+.card::after,
+.rg-box::after {
+  position: absolute;
+  z-index: -1;
+  inset: var(--rim-inset);
+  background:
+    radial-gradient(ellipse 22% 10% at 13% 0%, #fffff1 5%, #cce9e8 22%, #d4c4e9b5 49%, transparent),
+    radial-gradient(ellipse 23% 21% at 100% 5%, #fffbf0 3%, #edd5ef 20%, #9bc1d9a1 45%, transparent),
+    radial-gradient(ellipse 26% 9% at 77% 100%, #f6f9ed 4%, #c8e8ed 21%, #b9a4d29e 48%, transparent),
+    linear-gradient(151deg, #bebfc6, #5b5f6c 21%, #161a23 46%, #444550 71%, #9b9aa6);
+  clip-path: polygon(evenodd,
+    6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px),
+    calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px, 6px 0,
+    6.5px 1px, 1px 6.5px, 1px calc(100% - 6.5px), 6.5px calc(100% - 1px),
+    calc(100% - 6.5px) calc(100% - 1px), calc(100% - 1px) calc(100% - 6.5px),
+    calc(100% - 1px) 6.5px, calc(100% - 6.5px) 1px, 6.5px 1px);
+  pointer-events: none;
+  content: "";
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  padding: 11px;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 0;
+  background: var(--sapphire-light);
+}
+
+.card:focus-visible::after {
+  background: #eef2ff;
+}
+
+@media (hover: hover) {
+  .card:hover::before { filter: brightness(1.17); }
+  .card:hover::after { filter: brightness(1.23); }
+}
+
+.rg-photo {
+  display: block;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  padding: 2px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #2e2c29;
+  box-shadow: inset 0 1px 3px #151411b0, 0 1px #847d702e;
+}
+
+.rg-photo img,
+.slot-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.meta {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 8px 4px 3px;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(180deg, #2b2c33, #1c1e24);
+  box-shadow: inset 0 1px #edeaf12d, inset 0 -1px #0d0e12;
+  overflow-wrap: anywhere;
+}
+
+.meta .name {
+  font: 700 1.13rem/1.1 var(--display);
+  letter-spacing: .005em;
+}
+
+.meta .sub {
+  color: var(--muted);
+  font-size: .8125rem;
+  line-height: 1.2;
+}
+
+.badges { display: flex; flex-wrap: wrap; }
+
+.badge {
+  padding: 1px 6px;
+  border: 1px solid #b8b9c64a;
+  border-radius: 4px;
+  background: #33353e;
+  color: var(--ink);
+  font-size: .75rem;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.rg-box {
+  --cut: 16px;
+  --rim-inset: 6px;
+  padding: 17px;
+}
+
+.rg-box::before {
+  background:
+    radial-gradient(ellipse 33% 7% at 15% 0%, #e7e4dbd9, #9fc4d18a 34%, transparent),
+    radial-gradient(ellipse 16% 11% at 100% 3%, #f0dff4bb, #9c9fc363 36%, transparent),
+    radial-gradient(ellipse 35% 7% at 79% 100%, #a9d1d88f, transparent),
+    linear-gradient(145deg, #3a3b43, #282a31 24%, #202127 54%, #17191f);
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  margin-bottom: 10px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--silver-seam);
+}
+
+#slotCounter {
+  font: 700 1.42rem/1.08 var(--display);
+  letter-spacing: .005em;
+}
+
+.rg-box-progress {
+  display: block;
+  width: min(9rem, 40vw);
+  height: 7px;
+  margin-top: 5px;
+  appearance: none;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: #14151b;
+  accent-color: var(--sapphire);
+  box-shadow: inset 0 1px 2px #07080c, inset 0 -1px #74768845;
+}
+
+.rg-box-progress::-webkit-progress-bar { background: transparent; }
+.rg-box-progress::-webkit-progress-value {
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sapphire), var(--sapphire-light));
+}
+.rg-box-progress::-moz-progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sapphire), var(--sapphire-light));
+}
+
+.rg-slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.slot {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-width: 0;
+  min-height: 70px;
+  padding: 5px;
+  border: 1px solid #8e91a14d;
+  border-radius: 9px;
+  background: linear-gradient(165deg, var(--well), #202127);
+  box-shadow: inset 0 2px 5px #090a0eb3, 0 1px #ffffff0e;
+  color: var(--muted);
+  font-size: .8125rem;
+  text-align: center;
+}
+
+.slot.filled {
+  align-content: start;
+  gap: 4px;
+  background: linear-gradient(165deg, var(--well), #282a32);
+  border-top-color: var(--silver-seam);
+}
+
+.slot-photo {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #2f2c29;
+}
+
+.slot-text {
+  display: grid;
+  gap: 2px;
+  padding: 1px 0 2px;
+  overflow-wrap: anywhere;
+  font-size: .8125rem;
+  line-height: 1.13;
+}
+
+.slot-text > :first-child {
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.slot-profile {
+  color: var(--muted);
+  font: 700 .75rem/1.08 var(--display);
+  letter-spacing: .015em;
+}
+
+.remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #fffcf4;
+  border-radius: 50%;
+  background: linear-gradient(150deg, #fffbf2, #d1d3db);
+  color: #191a20;
+  font: 800 .9rem/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.rg-actions { display: grid; gap: 7px; margin-top: 10px; }
+
+.secondary,
+#addToCart,
+.filter-btn {
+  min-height: 38px;
+  padding: 5px 11px;
+  border: 1px solid var(--silver);
+  border-radius: 10px;
+  background: var(--button-glass);
+  color: var(--ink);
+  box-shadow: var(--button-reflection);
+  font: 650 .875rem/1.25 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+#addToCart {
+  min-height: 43px;
+  font-weight: 800;
+}
+
+.filter-btn,
+.secondary,
+#addToCart {
+  transition: border-color 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+#useSuggested,
+#confirmSuggested {
+  border-color: #e5e3e5;
+  background: linear-gradient(180deg, #f7f4ec, #dbdbe1 53%, #bec1cb);
+  color: #1b1d25;
+  box-shadow: inset 0 1px #fffdf7, inset 0 -1px #858b9b55, 0 3px 7px #0a0c1266;
+}
+
+.filter-btn.is-active,
+#addToCart:enabled {
+  border-color: #7e9be2;
+  background:
+    radial-gradient(ellipse at 30% 0%, #b9cdff55, transparent 67%),
+    linear-gradient(180deg, var(--sapphire), var(--sapphire-deep));
+  box-shadow: inset 0 1px #e3ebff9c, inset 0 -1px #0b184a8c, 0 3px 9px #09123582;
+}
+
+@media (hover: hover) {
+  .filter-btn:hover,
+  .secondary:enabled:hover,
+  #addToCart:enabled:hover { filter: brightness(1.13); }
+}
+
+.secondary:disabled,
+#addToCart:disabled {
+  border-color: #585b65;
+  background: #25262d;
+  color: #b1b2be;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.hint { color: var(--muted); font-size: .75rem; text-align: center; }

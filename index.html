@@ -2,56 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#2d2b29">
-  <title>Redgrass Tackle — Build‑a‑Box</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=quiet-graphite">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#302e2c">
+  <meta name="rg-preview-recipe" content="assets/data/suggested-preview.json">
+  <title>Redgrass Tackle — Build-a-Box</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=02f-opal">
 </head>
-<body>
+<body class="rg-quiet-graphite">
   <header class="rg-header">
     <p class="rg-wordmark">Redgrass Tackle</p>
-    <h1>Build‑a‑Box <span>(9 Slots)</span></h1>
-    <p>Pick any 9 half‑packs. Click a bait to fill the next slot. Duplicates allowed.</p>
+    <div class="rg-header-row">
+      <h1>Build-a-Box</h1>
+      <p class="rg-price">9 half-packs · $25</p>
+    </div>
+    <p>Choose any 9 half-packs. Duplicates welcome.</p>
   </header>
 
-  <section class="rg-toolbar">
-    <div class="filters">
-      <button class="filter-btn is-active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="3&quot; Chubby Minnow">Chubby</button>
-      <button class="filter-btn" data-filter="2.5&quot; Skinny Minnow">Skinny</button>
-      <button class="filter-btn" data-filter="2&quot; BA Split Tail">BA Split Tail</button>
-      <button class="filter-btn" data-filter="2&quot; Ribbed Paddletail">Paddletail</button>
-      <button class="filter-btn" data-filter="2&quot; Flicker Minnow">Flicker</button>
+  <section class="rg-toolbar" aria-label="Find baits">
+    <div class="filters" role="group" aria-label="Bait profile">
+      <button type="button" class="filter-btn is-active" data-filter="3&quot; Chubby Minnow" aria-pressed="true">Chubby</button>
+      <button type="button" class="filter-btn" data-filter="2.5&quot; Skinny Minnow" aria-pressed="false">Skinny</button>
+      <button type="button" class="filter-btn" data-filter="2&quot; BA Split Tail" aria-pressed="false">BA Split Tail</button>
+      <button type="button" class="filter-btn" data-filter="2&quot; Flicker Minnow" aria-pressed="false">Flicker</button>
+      <button type="button" class="filter-btn" data-filter="2&quot; Ribbed Paddletail" aria-pressed="false">Paddletail</button>
+      <button type="button" class="filter-btn" data-filter="all" aria-pressed="false">All</button>
+    </div>
+    <div class="rg-search">
+      <label class="rg-sr-only" for="baitSearch">Search color or bait</label>
+      <input id="baitSearch" type="search" placeholder="Search color or bait…" autocomplete="off" spellcheck="false" aria-controls="gallery">
+      <button type="button" id="clearSearch" class="rg-search-clear" aria-label="Clear search" hidden>×</button>
     </div>
   </section>
 
+  <section class="rg-suggested" id="suggestedBox" aria-labelledby="suggestedTitle" hidden>
+    <div>
+      <h2 id="suggestedTitle">The Redgrass Suggested Box <small class="rg-preview-label">Preview recipe</small></h2>
+      <p>Not sure where to start? Try our nine picks. Swap anything you like.</p>
+    </div>
+    <button type="button" id="useSuggested" class="secondary">Use Suggested Box</button>
+  </section>
+
   <main class="rg-workspace">
-    <section class="rg-box" aria-label="Your box">
-      <div class="status">
-        <span id="slotCounter">Slots Filled: 0 / 9</span>
-        <button id="clearAll" class="secondary">Clear All</button>
-      </div>
+    <section class="rg-gallery" id="gallery" aria-label="Bait catalog" aria-busy="true"></section>
 
-      <div class="rg-slots" id="slots">
-        <!-- 9 slots rendered by JS -->
-      </div>
+    <div class="rg-box-home" id="desktopBox">
+      <aside class="rg-box" id="boxTray" aria-label="Your box">
+        <div class="status">
+          <div>
+            <h2 class="rg-box-title">Your Box</h2>
+            <p id="slotCounter">Slots Filled: 0 / 9</p>
+            <progress id="boxProgress" class="rg-box-progress" aria-label="Box selection progress" max="9" value="0"></progress>
+          </div>
+          <button type="button" id="clearAll" class="secondary">Clear All</button>
+        </div>
 
-      <div class="rg-actions">
-        <button id="copyNote" class="secondary" disabled>Copy Selections</button>
-        <button id="addToCart" disabled>Add Box to Cart — $25</button>
-        <small class="hint">Checkout is handled securely on our Big Cartel store.</small>
-      </div>
-    </section>
+        <div class="rg-slots" id="slots" aria-label="Box slots"></div>
 
-    <section class="rg-gallery" id="gallery" aria-label="Bait catalog">
-      <!-- Bait cards rendered by JS -->
-    </section>
+        <div class="rg-actions">
+          <button type="button" id="copyNote" class="secondary" disabled>Copy Selections</button>
+          <button type="button" id="addToCart" disabled>Add Box to Cart — $25</button>
+          <small class="hint">Checkout is handled securely on our Big Cartel store.</small>
+        </div>
+        <p class="rg-feedback" id="desktopFeedback" aria-hidden="true" hidden></p>
+      </aside>
+    </div>
   </main>
 
+  <section class="rg-mobile-bar" aria-label="Your box progress">
+    <div class="rg-mobile-summary">
+      <span id="mobileProgress">0 / 9 selected · $25</span>
+      <span class="rg-mobile-feedback" id="mobileFeedback" aria-hidden="true" hidden></span>
+    </div>
+    <button type="button" class="secondary" id="viewBox" aria-haspopup="dialog" aria-controls="mobileBox">View Box</button>
+  </section>
+
+  <p class="rg-sr-only" id="pickerFeedback" role="status" aria-atomic="true"></p>
+
+  <dialog class="rg-drawer" id="mobileBox" aria-labelledby="mobileBoxTitle">
+    <div class="rg-dialog-head">
+      <h2 id="mobileBoxTitle">Review your box</h2>
+      <button type="button" class="secondary" id="closeBox" aria-label="Close box" autofocus>Close</button>
+    </div>
+    <div class="rg-drawer-content" id="drawerContent"></div>
+  </dialog>
+
+  <dialog class="rg-confirm" id="replaceBox" aria-labelledby="replacePrompt">
+    <h2 id="replacePrompt"></h2>
+    <div class="rg-dialog-actions">
+      <button type="button" class="secondary" id="keepPicks" autofocus>Keep my picks</button>
+      <button type="button" class="secondary" id="confirmSuggested">Use Suggested Box</button>
+    </div>
+  </dialog>
+
+  <dialog class="rg-confirm" id="previewHandoff" aria-labelledby="previewHandoffTitle">
+    <h2 id="previewHandoffTitle">Cart handoff preview</h2>
+    <p>The preview captured this URL locally.</p>
+    <p id="previewHandoffUrl" class="rg-handoff-url"></p>
+    <button type="button" class="secondary" id="closeHandoff" autofocus>Close</button>
+  </dialog>
+
   <footer class="rg-footer">
-    <p>Redgrass Tackle — Hand‑poured in Mississippi. Fan Favorites & Seasonal Colors.</p>
+    <p>Redgrass Tackle — Hand-poured in Mississippi. Fan Favorites &amp; Seasonal Colors.</p>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/domain-config.js?v=02f-store-1"></script>
+  <script src="assets/js/main.js?v=02f-store-1"></script>
 </body>
 </html>
